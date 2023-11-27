@@ -1,0 +1,326 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry} 
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ---- CUSTOM COMMANDS
+
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\amper{}}{\chardef\amper="E0BD }
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% CUSTUM FONTS
+% FONTS
+\usepackage[usenames,dvipsnames]{color}
+% CUSTUM FONT FILE
+\setmainfont{Catamaran}[
+	Path=./Catamaran/static/,
+	Scale=0.9,
+	Extension = .ttf,
+	UprightFont=*-Regular,
+	BoldFont=*-Bold,
+	ItalicFont=*-Thin
+]
+
+% PDF SETUP
+\usepackage[
+	bookmarks, 
+	colorlinks, 
+	breaklinks, 
+	% ---- FILL IN HERE THE TITLE AND AUTHOR
+	pdftitle={Sajed Zarinpour - vita},
+	pdfauthor={Sajed Zarinpour},
+	pdfproducer={https://github.com/sajed-zarrinpour}
+]{hyperref}  
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue}
+
+
+% color theme
+\newcommand{\lvlColor}{\textcolor{Cerulean}}
+
+% name title
+\newcommand{\name}[1]{
+	{\Huge \bfseries\textsl{#1}}\\ %name
+	[0.5cm] % leave some space after name
+}
+
+% contact information section
+\usepackage{multicol}
+\newcommand{\contactInfo}[6]{% remmember to adjust the number of entries here
+%Phone: #1 \normalsize\\
+email: \href{mailto:#2}{#2}\\
+linkedin: \href{#3}{#3}\\
+personal web page: \href{#4}{#4}\\
+stackoverflow: \href{#5}{#5}\\
+Location: #6
+}
+
+
+
+
+
+% define how a section lookslike:
+\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection. }{0em}{
+	#1\
+	\lvlColor{\raisedrulefill[0.4ex]{2pt}}
+}
+
+% template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
+\newcommand{\eduEntry}[4]{
+	\years{#1} \bfseries{#2}\\ 
+	 \normalsize\normalfont#3\\
+	 \em\small #4\normalsize\normalfont\\
+}
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\expEntry}[5]{
+	\years{#1} 
+	
+	\bfseries{#2} 
+	\lvlColor{\raisedrulefill[0.4ex]{.5pt}}
+	\normalfont #3, #4	
+
+	\vspace{.2cm}
+	\em\small #5%\usepackage{xunicode}
+	%\usepackage{xltxtra}
+	\defaultfontfeatures{Mapping=tex-text}
+	\normalsize\normalfont
+}
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\confEntry}[3]{
+	\years{#1} \bfseries{#2}\\ 
+	\normalfont\em\small #3
+	\normalsize\normalfont\vspace{.2cm}
+}
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\refEntry}[6]{
+	\years{#1} 
+	\bfseries{#2} \normalfont
+	
+	\vspace{.2cm}
+	 \indent\hspace{.2cm} Job: #3\\
+	 \indent\hspace{.2cm} Email: #4,\\
+	 \indent\hspace{.2cm} Phone: #5, \\
+	 \indent\hspace{.2cm} Address #6
+	\normalsize\normalfont\\	  
+}
+
+
+% for rendering skills in horizontal bullet list
+\usepackage[inline]{enumitem}
+\newlist{mylist}{enumerate*}{1}
+\setlist[mylist]{label=•}
+
+\begin{document}
+	\name{ Sajed Zarinpour }
+	\contactInfo
+	{ % current job phone number, if you add your number here, uncomment line 57 (Phone: #1 in the cmd definition)
+	}
+	{ % current job email
+		sa.zarinpour@gmail.com 
+	}
+	{ % LinkedIn
+	https://www.linkedin.com/in/sajed-zarrinpour-b7418891 
+	}
+	{ % Personal web page
+		https://sajed-zarrinpour.github.io 
+	}
+	{ % stackoverflow
+		https://stackoverflow.com/users/2164199/sajed-zarrinpour
+	}
+	{ % location
+		Guilan, Iran
+	}
+	
+	% resume headline. The purpose of the headline is to call attention to your value as a job candidate. Your headline should be brief, attention-grabbing, and relevant to the job you are applying to.  
+	\begin{center}
+		\vspace{.5cm}\LARGE Senior Web Developer with over 10 years experience  \normalsize\normalfont\\[.5cm]	
+	\end{center}
+
+	
+	\section*{Skills}
+	\textsl{
+		\begin{mylist}
+			\item  C++
+			\item Python
+			\item MATLAB
+			\item Julia
+			\item Keras
+			\item TensorFlow
+			\item Numpy
+			\item Pandas
+			\item Linux
+			\item git
+			\item Nodejs
+			\item RDBMS
+			\item Laravel
+		\end{mylist}
+	}
+	
+	\section*{Experiences}
+	
+	\expEntry{
+		December 2020 \\- August 2021
+	}{
+		Senior Backend Developer
+	}{
+		Tavana System
+	}{
+		Zanjan
+	}{
+		\begin{itemize}
+			\setlength\itemsep{0em}
+			\item Innovated solutions for intricate technical quandaries for 8 modules
+			\item Achieved effective task delegation to my team of 4
+			\item Conducted regular meetings
+			\item Mastered RDBMS such as MSSQL through extensive work
+			\item Resolved complex disputes by actively listening and facilitating open dialogue, resulting in mutually beneficial agreements that improved team dynamics and productivity by 30\%
+			\item Upgraded the reporting system using Stimulsoft to improve the quality of reports
+		\end{itemize}
+	}
+	
+	\expEntry{
+		April 2017 \\- May 2020
+	}{
+		Web Developer
+	}{
+		ZarinSoft
+	}{
+		Rasht
+	}{
+		\begin{itemize}
+			\setlength\itemsep{0em}
+			\item Contributed to the developer community in Stackoverflow to reach the top 30\% users by 1204 overall reputation
+			\item Designed strategies based on Agile methodology
+			\item Fostered the growth of members' skills through periodic learning/Q\&A sessions
+			\item Developed and maintained a couple of monolithic applications using PHP and Laravel Framework
+			\item Launched Bazarati startup using LAMP stack and Laravel Framework
+			\item Conducted regular website updates and maintenance to ensure functionality and usability
+		\end{itemize}
+	}
+	
+	\expEntry{
+		June 2010 -\\ March 2017
+	}{
+		Freelancer
+	}{
+		Freelancer
+	}{
+		Bandar Anzali
+	}{
+		\begin{itemize}
+			\setlength\itemsep{0em}
+			\item Produced Mahsa integrated library system via VB.NET and MSSQL for a private library that housed nearly three thousand books, increasing their efficiency by 10\% 
+			\item Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++
+			\item Coded a mini CSS and JS framework called My-Zebra that sped up my web production by 25\%
+			\item Implemented a mathematical expression runtime using C++ to showcase a profound numerical solver to my professors
+		\end{itemize}
+	}
+	
+	\section*{Education} 
+		\eduEntry
+		{
+			September 2017 - August 2020
+		}{
+		Institute for Advanced Studies in Basic Sciences, Iran
+		}{
+		M.Sc. in Applied Mathematics
+		}{		 
+		Numerical Method for Solving PDEs with Uncertainty Using Neural-Network
+		}
+		
+		\eduEntry
+		{
+			September 2012 - August 2017
+		}{
+			University of Guilan, Iran
+		}{
+			B.Sc. in Applied Mathematics
+		}{		 
+			Study on GMDH Algorithm for Stock Price
+		}
+	
+
+
+
+	\section*{Conferences \& Presentations}
+	
+		\lvlColor{\raisedrulefill[0.4ex]{.5pt}} Attendant\\
+		
+		\confEntry{
+			April 2020
+		}{
+			Solving inverse problems with deep learning
+		}
+		{
+			UC Berkeley Applied Math Seminar
+		}
+
+		\confEntry{
+			March 2019
+		}{
+			Introduction to Data Science in R
+		}
+		{
+			Institute for Advanced Studies in Basic Sciences
+		}
+		
+		\lvlColor{\raisedrulefill[0.4ex]{.5pt}} Presenter\\
+		
+		\confEntry{
+		 	January	2020
+		}{
+			IASBS Student Presentations in English 
+		}
+		{
+			Institute for Advanced Studies in Basic Sciences
+		}
+		
+	\section*{Languages}
+			English - \small\em\bfseries Upper Intermediate \normalfont\\
+			French - \small\em\bfseries Intermediate \normalfont
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
