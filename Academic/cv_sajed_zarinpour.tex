@@ -45,41 +45,46 @@
 % color theme
 \newcommand{\lvlColor}{\textcolor{Cerulean}}
 
-% tags theme
-\usepackage[skins]{tcolorbox}
-\newtcolorbox{tagbox}[1][]{
-	colback=blue!10!white,
-	arc=5pt,
-	auto outer arc,
-	boxrule=0pt,
-	enhanced jigsaw,
-	nobeforeafter,
-	width=2cm,
-	height=.5cm,
-	boxsep=0pt,
-	halign=center,
-	valign=center,
-	box align=center,
-	colupper={black}, 
-%	fontupper={\bfseries},
-	top=\fboxsep,
-	bottom=\fboxsep,
-	left=\fboxsep,
-	right=\fboxsep,
-	baseline=\fboxsep,
-	#1
-}
+%% tags theme
+%\usepackage[skins]{tcolorbox}
+%\newtcolorbox{tagbox}[1][]{
+%	colback=blue!10!white,
+%	arc=5pt,
+%	auto outer arc,
+%	boxrule=0pt,
+%	enhanced jigsaw,
+%	nobeforeafter,
+%	width=2cm,
+%	height=.5cm,
+%	boxsep=0pt,
+%	halign=center,
+%	valign=center,
+%	box align=center,
+%	colupper={black}, 
+%%	fontupper={\bfseries},
+%	top=\fboxsep,
+%	bottom=\fboxsep,
+%	left=\fboxsep,
+%	right=\fboxsep,
+%	baseline=\fboxsep,
+%	#1
+%}
+%
+%\newcommand{\sotagbox}[2][]{%
+%	\begin{tagbox}[#1]%
+%		#2
+%	\end{tagbox}%
+%}
 
-\newcommand{\sotagbox}[2][]{%
-	\begin{tagbox}[#1]%
-		#2
-	\end{tagbox}%
-}
-
+% using bullets instead of tags for ATS-Friendly consistency
+% for rendering skills in horizontal bullet list
+\usepackage[inline]{enumitem}
+\newlist{mylist}{enumerate*}{1}
+\setlist[mylist]{label=•}
 
 % name title
 \newcommand{\name}[1]{
-	{\LARGE \fontsize{22}{0}\bfseries #1}\\ %name
+	{\Huge \bfseries\textsl{#1}}\\ %name
 	[0.5cm] % leave some space after name
 }
 
@@ -152,10 +157,9 @@
 \begin{document}
 	\name{ Sajed Zarinpour }
 	\contactInfo{
-		Mirza kouchak khan St., End of Isar Dead End\\
-		Anzali\\
-		Guilan \texttt{4318875672}
- Iran.\\
+		Mirza kouchak khan St., End of Isar Dead End, Anzali \\
+		\texttt{4318875672}\\
+		Guilan, Iran\\
 	}{
 		+98-935-218-8208 %phone
 	}
@@ -214,11 +218,21 @@
 		}{
 			\begin{itemize}
 				\setlength\itemsep{0em}
-				\item Meticulously analyzing and designing solutions for intricate technical quandaries
-				\item Effectively delegating tasks to my team
-				\item Conducting regular meetings
-				\item Extensive work with RDBMS such as MSSQL
-				\item Resolved conflicts and negotiated agreements between parties in order to reach win-win solutions to disagreements and clarify misunderstandings
+				%with Action verbs:
+				\item Innovated solutions for intricate technical quandaries for 8 modules
+				\item Achieved effective task delegation to my team of 4
+				\item Conducted regular meetings
+				\item Mastered RDBMS such as MSSQL through extensive work
+				\item Resolved complex disputes by actively listening and facilitating open dialogue, resulting in mutually beneficial agreements that improved team dynamics and productivity by 30\%
+				\item Upgraded the reporting system using Stimulsoft to improve the quality of reports
+				
+				%without Action verbs
+				
+%				\item Meticulously analyzing and designing solutions for intricate technical quandaries
+%				\item Effectively delegating tasks to my team
+%				\item Conducting regular meetings
+%				\item Extensive work with RDBMS such as MSSQL
+%				\item Resolved conflicts and negotiated agreements between parties in order to reach win-win solutions to disagreements and clarify misunderstandings
 			\end{itemize}
 		}
 		
@@ -233,10 +247,20 @@
 		}{
 			\begin{itemize}
 				\setlength\itemsep{0em}
-				\item Design strategies based on Agile methodology
-				\item Foster the growth of member's skills through periodic learning/Q\&A sessions
+				% with Action Verbs:
+				\item Contributed to the developer community in Stackoverflow to reach the top 30\% users by 1204 overall reputation
+				\item Designed strategies based on Agile methodology
+				\item Fostered the growth of members' skills through periodic learning/Q\&A sessions
 				\item Developed and maintained a couple of monolithic applications using PHP and Laravel Framework
+				\item Launched Bazarati startup using LAMP stack and Laravel Framework
 				\item Conducted regular website updates and maintenance to ensure functionality and usability
+				
+				%without Action Verbs
+				
+%				\item Design strategies based on Agile methodology
+%				\item Foster the growth of member's skills through periodic learning/Q\&A sessions
+%				\item Developed and maintained a couple of monolithic applications using PHP and Laravel Framework
+%				\item Conducted regular website updates and maintenance to ensure functionality and usability
 			\end{itemize}
 		}
 		
@@ -248,7 +272,15 @@
 			Freelancer
 		}{
 			Bandar Anzali
-		}{}
+		}{
+			\begin{itemize}
+				\setlength\itemsep{0em}
+				\item Produced Mahsa integrated library system via VB.NET and MSSQL for a private library that housed nearly three thousand books, increasing their efficiency by 10\% 
+				\item Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++
+				\item Coded a mini CSS and JS framework called My-Zebra that sped up my web production by 25\%
+				\item Implemented a mathematical expression runtime using C++ to showcase a profound numerical solver to my professors
+			\end{itemize}
+		}
 
 	\pagebreak
 	\section*{Reaserch \& Interests}
@@ -272,7 +304,7 @@
 			From Biophysical Modeling to Simulation Codes (Winter School)
 		}
 		{
-			Graz university, Isfahan university of technology
+			Graz university, Isfahan University of Technology
 		}
 
 		\confEntry{
@@ -299,7 +331,7 @@
 			One World IMAGINE seminars 
 		}
 		{
-			siam
+			Siam
 		}
 		
 		\confEntry{
@@ -308,7 +340,7 @@
 			An Introduction to Variational Analysis (Summer School) 
 		}
 		{
-			Miami University, Urumia university of technology
+			Miami University, Urumia University of Technology
 		}
 		
 
@@ -321,13 +353,13 @@
 		}
 		{
 			Institute for Advanced Studies in Basic Sciences
-		}
-			
+		}	
+		
 	\section*{Skills}
 	
 		\bfseries Languages \normalfont\\
 		\indent\hspace{.2cm}Persian - \small\em\bfseries Native\normalfont\\
-		\indent\hspace{.2cm}French - \small\em\bfseries Beginner\normalfont\\
+		\indent\hspace{.2cm}French - \small\em\bfseries Intermediate\normalfont\\
 		\indent\hspace{.2cm}English \\
 		\indent\hspace{.4cm}\em According to \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}{European language levels}: Basic user (A1, A2) - Independent user (B1, B2) - Proficient user (C1, C2) \normalfont\\
 		\indent\hspace{.4cm}\em Understanding
@@ -342,16 +374,36 @@
 		\end{itemize}
 		\indent\hspace{.4cm}\em Writing - \bfseries C1 \normalfont \\
 		
-		\pagebreak
+		\bfseries Comupter Skills \normalfont\\
 		
-		\bfseries Computer Skills \normalfont\\[.5cm]
-		\indent\hspace{.4cm}Scientific Programming Languages \hspace{1cm}\sotagbox{C++}  \sotagbox{Python}  \sotagbox{MATLAB}  \sotagbox{Julia} \\
+		\textsl{
+			\begin{mylist}
+				\item C++
+				\item Python
+				\item MATLAB
+				\item Julia
+				\item Keras
+				\item TensorFlow
+				\item Numpy
+				\item Pandas
+				\item Freefem++
+				\item NgSolve
+				\item Linux
+				\item git
+				\item Nodejs
+				\item RDBMS
+				\item Laravel
+			\end{mylist}
+		}
 		
-		\indent\hspace{.4cm}Scientific Libraries \hspace{3cm}\sotagbox{Keras}  \sotagbox{TensorFlow}  \sotagbox{Numpy}  \sotagbox{Pandas} \\
-		
-		\indent\hspace{.4cm}Professional Softwares and Utilities \hspace{1cm}\sotagbox{FreeFem++}  \sotagbox{FEniCS}  \sotagbox{Linux}  \sotagbox{git} \\
-		
-		\indent\hspace{.4cm}Web Developing \hspace{3.2cm}  \sotagbox{Nodejs}  \sotagbox{RDBMS}  \sotagbox{Laravel} \\
+%		\bfseries Computer Skills \normalfont\\[.5cm]
+%		\indent\hspace{.4cm}Scientific Programming Languages \hspace{1cm}\sotagbox{C++}  \sotagbox{Python}  \sotagbox{MATLAB}  \sotagbox{Julia} \\
+%		
+%		\indent\hspace{.4cm}Scientific Libraries \hspace{3cm}\sotagbox{Keras}  \sotagbox{TensorFlow}  \sotagbox{Numpy}  \sotagbox{Pandas} \\
+%		
+%		\indent\hspace{.4cm}Professional Softwares and Utilities \hspace{1cm}\sotagbox{FreeFem++}  \sotagbox{FEniCS}  \sotagbox{Linux}  \sotagbox{git} \\
+%		
+%		\indent\hspace{.4cm}Web Developing \hspace{3.2cm}  \sotagbox{Nodejs}  \sotagbox{RDBMS}  \sotagbox{Laravel} \\
 
 	\section*{References}
 		Available on Request
