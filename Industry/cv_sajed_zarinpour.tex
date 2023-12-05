@@ -1,129 +1,12 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage{fontspec}
-
-% DOCUMENT LAYOUT
-\usepackage{geometry} 
-\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
-\setlength\parindent{0in}
-
-% ---- CUSTOM COMMANDS
-
-% ---- MARGIN YEARS
-\usepackage{marginnote}
-\newcommand{\amper{}}{\chardef\amper="E0BD }
-\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
-\renewcommand*{\raggedleftmarginnote}{}
-\setlength{\marginparsep}{7pt}
-\reversemarginpar
-
-% CUSTUM FONTS
-% FONTS
-\usepackage[usenames,dvipsnames]{color}
-% CUSTUM FONT FILE
-\setmainfont{Catamaran}[
-	Path=./Catamaran/static/,
-	Scale=0.9,
-	Extension = .ttf,
-	UprightFont=*-Regular,
-	BoldFont=*-Bold,
-	ItalicFont=*-Thin
-]
-
-% PDF SETUP
-\usepackage[
-	bookmarks, 
-	colorlinks, 
-	breaklinks, 
-	% ---- FILL IN HERE THE TITLE AND AUTHOR
-	pdftitle={Sajed Zarinpour - vita},
-	pdfauthor={Sajed Zarinpour},
-	pdfproducer={https://github.com/sajed-zarrinpour}
-]{hyperref}  
-\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue}
-
-
-% color theme
-\newcommand{\lvlColor}{\textcolor{Cerulean}}
-
-% name title
-\newcommand{\name}[1]{
-	{\Huge \bfseries\textsl{#1}}\\ %name
-	[0.5cm] % leave some space after name
-}
-
-% contact information section
-\usepackage{multicol}
-\newcommand{\contactInfo}[6]{% remmember to adjust the number of entries here
-%Phone: #1 \normalsize\\
-email: \href{mailto:#2}{#2}\\
-linkedin: \href{#3}{#3}\\
-personal web page: \href{#4}{#4}\\
-stackoverflow: \href{#5}{#5}\\
-Location: #6
-}
-
-
-
-
-
-% define how a section lookslike:
-\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
-\usepackage[explicit]{titlesec}
-\titleformat{\section}{\Large\bfseries}{\thesection. }{0em}{
-	#1\
-	\lvlColor{\raisedrulefill[0.4ex]{2pt}}
-}
-
-% template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
-\newcommand{\eduEntry}[4]{
-	\years{#1} \bfseries{#2}\\ 
-	 \normalsize\normalfont#3\\
-	 \em\small #4\normalsize\normalfont\\
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\expEntry}[5]{
-	\years{#1} 
-	
-	\bfseries{#2} 
-	\lvlColor{\raisedrulefill[0.4ex]{.5pt}}
-	\normalfont #3, #4	
-
-	\vspace{.2cm}
-	\em\small #5%\usepackage{xunicode}
-	%\usepackage{xltxtra}
-	\defaultfontfeatures{Mapping=tex-text}
-	\normalsize\normalfont
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\confEntry}[3]{
-	\years{#1} \bfseries{#2}\\ 
-	\normalfont\em\small #3
-	\normalsize\normalfont\vspace{.2cm}
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\refEntry}[6]{
-	\years{#1} 
-	\bfseries{#2} \normalfont
-	
-	\vspace{.2cm}
-	 \indent\hspace{.2cm} Job: #3\\
-	 \indent\hspace{.2cm} Email: #4,\\
-	 \indent\hspace{.2cm} Phone: #5, \\
-	 \indent\hspace{.2cm} Address #6
-	\normalsize\normalfont\\	  
-}
-
-
-% for rendering skills in horizontal bullet list
-\usepackage[inline]{enumitem}
-\newlist{mylist}{enumerate*}{1}
-\setlist[mylist]{label=•}
+\usepackage{simplecv}
 
 \begin{document}
-	\name{ Sajed Zarinpour }
+	
+	\name
+	{ % your name
+		 Sajed Zarinpour 
+	}
 	\contactInfo
 	{ % current job phone number, if you add your number here, uncomment line 57 (Phone: #1 in the cmd definition)
 	}
@@ -144,29 +27,16 @@ Location: #6
 	}
 	
 	% resume headline. The purpose of the headline is to call attention to your value as a job candidate. Your headline should be brief, attention-grabbing, and relevant to the job you are applying to.  
-	\begin{center}
-		\vspace{.5cm}\LARGE Senior Web Developer with over 10 years experience  \normalsize\normalfont\\[.5cm]	
-	\end{center}
+	\headline{
+		Senior Web Developer with over 10 years experience
+	}  
+
 
 	
 	\section*{Skills}
-	\textsl{
-		\begin{mylist}
-			\item  C++
-			\item Python
-			\item MATLAB
-			\item Julia
-			\item Keras
-			\item TensorFlow
-			\item Numpy
-			\item Pandas
-			\item Linux
-			\item git
-			\item Nodejs
-			\item RDBMS
-			\item Laravel
-		\end{mylist}
-	}
+		\skills{
+			Python, MATLAB, Julia, Keras, TensorFlow, Numpy, Pandas, Linux, git, Nodejs, RDBMS, Laravel
+		}
 	
 	\section*{Experiences}
 	
@@ -179,15 +49,21 @@ Location: #6
 	}{
 		Zanjan
 	}{
-		\begin{itemize}
-			\setlength\itemsep{0em}
-			\item Innovated solutions for intricate technical quandaries for 8 modules
-			\item Achieved effective task delegation to my team of 4
-			\item Conducted regular meetings
-			\item Mastered RDBMS such as MSSQL through extensive work
-			\item Resolved complex disputes by actively listening and facilitating open dialogue, resulting in mutually beneficial agreements that improved team dynamics and productivity by 30\%
-			\item Upgraded the reporting system using Stimulsoft to improve the quality of reports
-		\end{itemize}
+		\explist{ % IMPORTANT : entries to this list are devided by ;
+			%if you want a paragraph here which your list indents according to that; write your paragraph and end it with a , and then leave a blank line before next item
+			% (remember to seperate lines by comments (%) so it will not intrupt the command and remain readable)
+			Innovated solutions for intricate technical quandaries for 8 modules;
+			% 
+			Achieved effective task delegation to my team of 4;
+			%
+			Conducted regular meetings;
+			%
+			Mastered RDBMS such as MSSQL through extensive work;
+			%
+			Resolved complex disputes by actively listening and facilitating open dialogue, resulting in mutually beneficial agreements that improved team dynamics and productivity by 30\%;
+			%
+			Upgraded the reporting system using Stimulsoft to improve the quality of reports
+		}
 	}
 	
 	\expEntry{
@@ -199,15 +75,19 @@ Location: #6
 	}{
 		Rasht
 	}{
-		\begin{itemize}
-			\setlength\itemsep{0em}
-			\item Contributed to the developer community in Stackoverflow to reach the top 30\% users by 1204 overall reputation
-			\item Designed strategies based on Agile methodology
-			\item Fostered the growth of members' skills through periodic learning/Q\&A sessions
-			\item Developed and maintained a couple of monolithic applications using PHP and Laravel Framework
-			\item Launched Bazarati startup using LAMP stack and Laravel Framework
-			\item Conducted regular website updates and maintenance to ensure functionality and usability
-		\end{itemize}
+		\explist{
+			Contributed to the developer community in Stackoverflow to reach the top 30\% users by 1204 overall reputation;
+			%
+			Designed strategies based on Agile methodology;
+			%
+			Fostered the growth of members' skills through periodic learning/Q\&A sessions;
+			%
+			Developed and maintained a couple of monolithic applications using PHP and Laravel Framework;
+			%
+			Launched Bazarati startup using LAMP stack and Laravel Framework;
+			%
+			Conducted regular website updates and maintenance to ensure functionality and usability
+		}
 	}
 	
 	\expEntry{
@@ -219,13 +99,15 @@ Location: #6
 	}{
 		Bandar Anzali
 	}{
-		\begin{itemize}
-			\setlength\itemsep{0em}
-			\item Produced Mahsa integrated library system via VB.NET and MSSQL for a private library that housed nearly three thousand books, increasing their efficiency by 10\% 
-			\item Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++
-			\item Coded a mini CSS and JS framework called My-Zebra that sped up my web production by 25\%
-			\item Implemented a mathematical expression runtime using C++ to showcase a profound numerical solver to my professors
-		\end{itemize}
+		\explist{
+			Produced Mahsa integrated library system via VB.NET and MSSQL for a private library that housed nearly three thousand books, increasing their efficiency by 10\% ;
+			%
+			Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++;
+			%
+			Coded a mini CSS and JS framework called My-Zebra that sped up my web production by 25\%;
+			%
+			Implemented a mathematical expression runtime using C++ to showcase a profound numerical solver to my professors
+		}
 	}
 	
 	\section*{Education} 
@@ -256,7 +138,7 @@ Location: #6
 
 	\section*{Conferences \& Presentations}
 	
-		\lvlColor{\raisedrulefill[0.4ex]{.5pt}} Attendant\\
+		\seperatorcolor{\raisedrulefill[0.4ex]{.5pt}} Attendant\\
 		
 		\confEntry{
 			April 2020
@@ -276,7 +158,7 @@ Location: #6
 			Institute for Advanced Studies in Basic Sciences
 		}
 		
-		\lvlColor{\raisedrulefill[0.4ex]{.5pt}} Presenter\\
+		\slimseperator Presenter\\
 		
 		\confEntry{
 		 	January	2020
@@ -288,8 +170,8 @@ Location: #6
 		}
 		
 	\section*{Languages}
-			English - \small\em\bfseries Upper Intermediate \normalfont\\
-			French - \small\em\bfseries Intermediate \normalfont
+			English - \languagelvl{ Upper Intermediate }\\
+			French  - \languagelvl{ Intermediate }
 \end{document}
 
 

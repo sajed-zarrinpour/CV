@@ -1,0 +1,162 @@
+\ProvidesPackage{simplecv}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry} 
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\amper{}}{\chardef\amper="E0BD }
+\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% CUSTUM FONTS
+\usepackage{fontspec}
+\usepackage[usenames,dvipsnames]{color}
+% CUSTUM FONT FILE
+\setmainfont{Catamaran}[
+	Path=./Catamaran/static/,
+	Scale=0.9,
+	Extension = .ttf,
+	UprightFont=*-Regular,
+	BoldFont=*-Bold,
+	ItalicFont=*-Thin
+]
+
+% PDF SETUP
+\usepackage[
+	bookmarks, 
+	colorlinks, 
+	breaklinks, 
+	% ---- FILL IN HERE THE TITLE AND AUTHOR
+	pdftitle={Sajed Zarinpour - vita},
+	pdfauthor={Sajed Zarinpour},
+	pdfproducer={https://github.com/sajed-zarrinpour}
+]{hyperref}  
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue}
+
+% HELPER COMMANDS
+
+\newcommand{\seperatorcolor}{\textcolor{Cerulean}} % color theme
+\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
+\newcommand{\slimseperator}{\seperatorcolor{\raisedrulefill[0.4ex]{.5pt}}} % the slim seperator
+\newcommand{\seperator}{\seperatorcolor{\raisedrulefill[0.4ex]{2pt}}} % seperator
+
+% NAME
+\newcommand{\name}[1]{
+	{\Huge \bfseries\textsl{#1}}\\ %name
+	[0.5cm] % leave some space after name
+}
+
+% contact information section
+\usepackage{multicol}
+\newcommand{\contactInfo}[6]{
+	%Phone: #1 \normalsize\\ % if you want to add phone number, please uncomment this line
+	email: \href{mailto:#2}{#2}\\
+	linkedin: \href{#3}{#3}\\
+	personal web page: \href{#4}{#4}\\
+	stackoverflow: \href{#5}{#5}\\
+	Location: #6
+}
+
+% resume headline
+\newcommand{\headline}[1]{
+	\begin{center}
+		\vspace{.5cm}\LARGE #1  \normalsize\normalfont\\[.5cm]	
+	\end{center}
+}
+
+\usepackage{forarray} % to use foreach on arrays
+% for rendering skills in horizontal bullet list
+\usepackage{paralist}
+\newcommand{\skills}[1]{
+	\textsl{
+		\begin{inparaitem}
+			\ForEach
+			{,} %seperator
+			{\item \thislevelitem \hspace{3pt}} %for loop body
+			{ #1} %string input holding items seperated by seperator
+		\end{inparaitem}
+	}
+}
+% option 2: uncomment next 3 lines:
+%\usepackage[inline]{enumitem}
+%\newlist{skills}{enumerate*}{1}
+%\setlist[skills]{label=•}
+% though, you have to use it manually in the tex file using the following command:
+%\begin{skills}
+%	\item
+%\end{skills}
+% language lvl
+\newcommand{\languagelvl}[1]{
+	\small\em\bfseries #1 \normalfont
+}
+
+% define how a section lookslike:
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection. }{0em}{
+	#1\
+	\seperator
+}
+
+% template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
+\newcommand{\eduEntry}[4]{
+	\years{#1} \bfseries{#2}\\ 
+	\normalsize\normalfont#3\\
+	\em\small #4\normalsize\normalfont\\
+}
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\expEntry}[5]{
+	\years{#1} 
+	
+	\bfseries{#2} 
+	\slimseperator
+	\normalfont #3, #4	
+	
+	\vspace{.2cm}
+	\em\small #5
+	\defaultfontfeatures{Mapping=tex-text}
+	\normalsize\normalfont
+}
+
+% template for experience entries, use : \explist{item1;item2}
+\newcommand{\explist}[1]{
+	\textsl{
+		\begin{itemize}
+			\setlength\itemsep{0em} %reducing the vertical space between entries
+			\ForEach
+			{;} % seperator
+			{ \item \thislevelitem } % processing each item
+			{ #1 } % string of ; seperated values
+		\end{itemize}
+	}
+}
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\confEntry}[3]{
+	\years{#1} \bfseries{#2}\\ 
+	\normalfont\em\small #3
+	\normalsize\normalfont\vspace{.2cm}
+}
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\refEntry}[6]{
+	\years{#1} 
+	\bfseries{#2} \normalfont
+	
+	\vspace{.2cm}
+	\indent\hspace{.2cm} Job: #3\\
+	\indent\hspace{.2cm} Email: #4,\\
+	\indent\hspace{.2cm} Phone: #5, \\
+	\indent\hspace{.2cm} Address #6
+	\normalsize\normalfont\\	  
+}
+
+
+
+
+
