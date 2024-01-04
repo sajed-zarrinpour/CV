@@ -1,7 +1,5 @@
 # simple CV
 
-## commands:
-
 > [!IMPORTANT]
 > Replace values wrapped in `<` and `>` signs with your actual data.
 
