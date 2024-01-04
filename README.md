@@ -23,12 +23,6 @@
 ```\eduEntry{<Start Year> - <End Year>}{<University Name>}{<Degree>}{<Thesis title>}```
 
 ## Experience
-> [!TIP]
-> Entries to \explist are divided by `;`. If you wish to separate them in your code, use `%` so it will not interrupt the command and remain readable.
-> Do not add `;` at the last entry
-
-> [!TIP]
-> In my opinion, including the skills used in a job here in your job entry is good practice.
 
 ```
 \expEntry{<Start Date> - <End Date>}{<Job Title>}{<Company>}{<Location>}
@@ -44,6 +38,14 @@
 	\skills{item1, item2}
 }
 ```
+
+> [!TIP]
+> Entries to \explist are divided by `;`. If you wish to separate them in your code, use `%` so it will not interrupt the command and remain readable.
+> Do not add `;` at the last entry
+
+> [!TIP]
+> In my opinion, including the skills used in a job here in your job entry is good practice.
+
 ## Research & Interests
 
 > [!WARNING]
