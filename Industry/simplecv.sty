@@ -2,29 +2,23 @@
 
 % DOCUMENT LAYOUT
 \usepackage{geometry} 
-\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\geometry{a4paper, textwidth=6.5in, textheight=9in, marginparsep=7pt, marginparwidth=.6in}
 \setlength\parindent{0in}
 
-% MARGIN YEARS
-\usepackage{marginnote}
-\newcommand{\amper{}}{\chardef\amper="E0BD }
-\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
-\renewcommand*{\raggedleftmarginnote}{}
-\setlength{\marginparsep}{7pt}
-\reversemarginpar
+% to push the paragraphs aside so a text introduces them, like years and titles
+\newcommand{\aside}[2]{
+	\par\medskip\noindent#1\normalsize\hfill
+	\begin{minipage}[t]{\dimexpr\linewidth-8em\relax}
+		#2
+	\end{minipage}\hspace{10pt}\mbox{}\par\medskip%\hspace{4em}
+}
 
-% CUSTUM FONTS
+
+% FONTS
 \usepackage{fontspec}
 \usepackage[usenames,dvipsnames]{color}
-% CUSTUM FONT FILE
-\setmainfont{Catamaran}[
-	Path=./Catamaran/static/,
-	Scale=0.9,
-	Extension = .ttf,
-	UprightFont=*-Regular,
-	BoldFont=*-Bold,
-	ItalicFont=*-Thin
-]
+% use sans family font
+\renewcommand{\familydefault}{\sfdefault}
 
 % PDF SETUP
 \usepackage[
@@ -43,23 +37,21 @@
 \newcommand{\seperatorcolor}{\textcolor{Cerulean}} % color theme
 \newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
 \newcommand{\slimseperator}{\seperatorcolor{\raisedrulefill[0.4ex]{.5pt}}} % the slim seperator
-\newcommand{\seperator}{\seperatorcolor{\raisedrulefill[0.4ex]{2pt}}} % seperator
+\newcommand{\seperator}{\seperatorcolor{\raisedrulefill[0.4ex]{4pt}}} % seperator
 
 % NAME
 \newcommand{\name}[1]{
-	{\Huge \bfseries\textsl{#1}}\\ %name
+	{\fontsize{40}{70} \selectfont#1}\\ %name
 	[0.5cm] % leave some space after name
 }
 
 % contact information section
 \usepackage{multicol}
-\newcommand{\contactInfo}[6]{
-	%Phone: #1 \normalsize\\ % if you want to add phone number, please uncomment this line
-	email: \href{mailto:#2}{#2}\\
-	linkedin: \href{#3}{#3}\\
-	personal web page: \href{#4}{#4}\\
-	stackoverflow: \href{#5}{#5}\\
-	Location: #6
+\newcommand{\contactInfo}[4]{
+\textcolor{gray}{#1}\\
+\textcolor{gray}{Phone: \hspace{.7em}\texttt{#2}}\\
+\textcolor{gray}{Email: \hspace{1.1em}\href{mailto:#3}{#3}}\\
+\textcolor{gray}{LinkedIn: \href{#4}{#4}}
 }
 
 % resume headline
@@ -73,14 +65,12 @@
 % for rendering skills in horizontal bullet list
 \usepackage{paralist}
 \newcommand{\skills}[1]{
-	\textsl{
 		\begin{inparaitem}
 			\ForEach
 			{,} %seperator
 			{\item \thislevelitem \hspace{3pt}} %for loop body
 			{ #1} %string input holding items seperated by seperator
 		\end{inparaitem}
-	}
 }
 % option 2: uncomment next 3 lines:
 %\usepackage[inline]{enumitem}
@@ -97,35 +87,34 @@
 
 % define how a section lookslike:
 \usepackage[explicit]{titlesec}
-\titleformat{\section}{\Large\bfseries}{\thesection. }{0em}{
-	#1\
-	\seperator
+\titleformat{\section}{\Large}{\thesection. }{0em}{
+%	\years{\seperator}
+\bfseries #1 \normalfont
+\seperator
 }
 
 % template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
-\newcommand{\eduEntry}[4]{
-	\years{#1} \bfseries{#2}\\ 
-	\normalsize\normalfont#3\\
-	\em\small #4\normalsize\normalfont\\
+\newcommand{\eduEntry}[5]{
+	\aside{#1}{
+		 \bfseries{#2}, \normalsize\normalfont#3\\
+		\normalfont #4
+		\color{gray}#5\normalsize\normalfont
+	}
 }
 
 % template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
 \newcommand{\expEntry}[5]{
-	\years{#1} 
-	
-	\bfseries{#2} 
-	\slimseperator
-	\normalfont #3, #4	
-	
-	\vspace{.2cm}
-	\em\small #5
-	\defaultfontfeatures{Mapping=tex-text}
-	\normalsize\normalfont
+	\aside{#1}{
+		\large\bfseries{#2} at \normalfont #3, #4	
+		
+		 #5
+		\defaultfontfeatures{Mapping=tex-text}
+		\normalsize\normalfont\vspace{.2cm}
+	}
 }
 
 % template for experience entries, use : \explist{item1;item2}
 \newcommand{\explist}[1]{
-	\textsl{
 		\begin{itemize}
 			\setlength\itemsep{0em} %reducing the vertical space between entries
 			\ForEach
@@ -133,28 +122,108 @@
 			{ \item \thislevelitem } % processing each item
 			{ #1 } % string of ; seperated values
 		\end{itemize}
+}
+
+\usepackage{multicol}
+\newcommand{\interestslist}[1]{
+		\begin{multicols}{2}
+			\begin{itemize}
+				\setlength\itemsep{0em} %reducing the vertical space between entries
+				\ForEach
+				{,} % seperator
+				{ \item \thislevelitem } % processing each item
+				{ #1 } % string of , seperated values
+			\end{itemize}
+		\end{multicols}
+}
+
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+\newcommand{\confEntry}[3]{
+	\aside{#1}{
+		\bfseries{#2}\\ 
+		\normalfont\em\small #3
+		\normalsize\normalfont\vspace{.2cm}
 	}
 }
 
 % template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\confEntry}[3]{
-	\years{#1} \bfseries{#2}\\ 
-	\normalfont\em\small #3
-	\normalsize\normalfont\vspace{.2cm}
+\newcommand{\refEntry}[5]{ 
+		\bfseries{#2} \normalfont #1
+		
+		\vspace{.2cm}
+		\indent\hspace{.2cm} Job: #3\\
+		\indent\hspace{.2cm} Email: #4,\\
+		\indent\hspace{.2cm} Address #5
+		\normalsize\normalfont\\	  
 }
 
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\refEntry}[6]{
-	\years{#1} 
-	\bfseries{#2} \normalfont
-	
-	\vspace{.2cm}
-	\indent\hspace{.2cm} Job: #3\\
-	\indent\hspace{.2cm} Email: #4,\\
-	\indent\hspace{.2cm} Phone: #5, \\
-	\indent\hspace{.2cm} Address #6
-	\normalsize\normalfont\\	  
+
+% tags theme
+\usepackage[skins]{tcolorbox}
+\newtcolorbox{tagbox}[1][]{
+		colback=blue!10!white,
+		arc=5pt,
+		auto outer arc,
+		boxrule=0pt,
+		enhanced jigsaw,
+		nobeforeafter,
+		width=2cm,
+		height=.5cm,
+		boxsep=0pt,
+		halign=center,
+		valign=center,
+		box align=center,
+		colupper={black}, 
+	%	fontupper={\bfseries},
+		top=\fboxsep,
+		bottom=\fboxsep,
+		left=\fboxsep,
+		right=\fboxsep,
+		baseline=\fboxsep,
+		#1
+	}
+
+\newcommand{\sotagbox}[2][]{% \sotagbox{Julia}
+	\begin{tagbox}[#1]%
+		#2
+	\end{tagbox}%
 }
+
+\newcommand{\bold}[1]{
+	\bfseries #1 \normalfont
+}
+
+\newcommand{\languageEnry}[2]{
+	#1 - \small\em\bfseries #2 \normalfont
+}
+
+\newcommand{\selfAssessedEng}[5]{
+	\aside{Understanding:}{\skills{ Listening #1,  Reading #2}}
+	\aside{Speaking:}{\skills{Spoken Interaction #3, Spoken Production #4}}	
+	\aside{Writing:}{\skills{#5}}
+	 	
+	\small According to \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}{European language levels}: Basic user (A1, A2) - Independent user (B1, B2) - Proficient user (C1, C2) \normalfont
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
