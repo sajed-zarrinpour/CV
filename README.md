@@ -1,36 +1,93 @@
-# CV
-My own simple CV in latex
-Usage:
-`\name{ Your Name }`
-Print your name at the begining of your CV.
+# simple CV
 
-\contactInfo{ Adress }{ Phone }{ Email }{ Web Page }{ LinkedIn }
+## commands:
 
-\eduEntry{ Start Year-End Year }{ University }{ Degree }{ Thesis }
+> [!IMPORTANT]
+> Replace values wrapped in `<` and `>` signs with your actual data.
 
-\expEntry{ Start Date \\- End Date }{ Title }{ Company }{ Location }
+## Name
+
+```\name{<Your Name>}```
+
+> [!NOTE]
+> Please do not add a space after`{` or `}` symbols in commands. For example use `\name{Sajed Zarinpor}` instead of `\name{ Sajed zarinpour }`
+
+
+## Contact information
+
+```\contactInfo{<Location>}{<Phone>}{<Email>}{<LinkedIn>}```
+
+## Education
+```\eduEntry{<Start Year> - <End Year>}{<University Name>}{<Degree>}{<Thesis title>}```
+
+## Experience
+> [!TIP]
+> Entries to \explist are divided by `;`. If you wish to separate them in your code, use `%` so it will not interrupt the command and remain readable.
+> Do not add `;` at the last entry
+
+> [!TIP]
+> In my opinion, including the skills used in a job here in your job entry is good practice.
+
+```
+\expEntry{<Start Date> - <End Date>}{<Job Title>}{<Company>}{<Location>}
 {
-	% IMPORTANT : entries to this list are devided by ;  (remember to seperate lines by comments (%) so it will not intrupt the command and remain readable)
-	%if you want a paragraph here which your list indents according to that; write your paragraph and end it with a ; and then leave a blank line before next item
 	\explist{ 
-		Paragraph;
-	
 		item 1;
 		%
 		item 2;
 		%
 		item 3
 	}
+	
+	\skills{item1, item2}
 }
+```
+## Research & Interests
 
-\interestslist{ item1, item2, item3 }
+> [!WARNING]
+> Note that this list uses the `,` sign to separate items.
 
-\confEntry{ Date }{ Title }{ Host }
+```\interestslist{item1, item2, item3}```
 
-\languageEnry{ Language Name }{ Profiecency }
+## Schools & Conferences
 
-\selfAssessedEng{ Listening }{ Reading }{ Spoken Interaction }{ Spoken Production }{ Writing }
+```\confEntry{<Date>}{<Title>}{<Host>}```
 
-\skills{ item1, item2, item3 }
+## languages
 
-\refEntry{ Relation }{ Title & Name }{ Position }{ eMail }{ Address }
+```\languageEnry{<Language>}{<Profiecency>}```
+
+> [!TIP]
+> If you wish, you can use [https://europass.cedefop.europa.eu/resources/european-language-levels-cefr](https://europass.cedefop.europa.eu/resources/european-language-levels-cefr) chart.
+> If you did that, use the following command.
+
+```\selfAssessedEng{<Listening>}{<Reading>}{<Spoken Interaction>}{<Spoken Production>}{<Writing>}```
+
+## Skills
+
+> [!WARNING]
+> Note that this list uses the `,` sign to separate items.
+
+```\skills{item1, item2, item3}```
+
+## References
+
+> [!TIP]
+> Try not to include your references occasionally. You can say **Available on request** in this section. Moreover, I suggest separating your references in another file.
+
+```\refEntry{(<Relation>)}{<Title & Name>}{<Associasion>}{<eMail>}{<Address>}```
+## PDF Metadata
+> [!CAUTION]
+> Don't forget to edit lines 29, 30, and 31 in the `simplecv.sty` file. You shall see the following content.
+
+``` 
+ \usepackage[
+	bookmarks, 
+	colorlinks, 
+	breaklinks, 
+	% ---- FILL IN HERE THE TITLE AND AUTHOR
+	pdftitle={Sajed Zarinpour - vita},
+	pdfauthor={Sajed Zarinpour},
+	pdfproducer={https://github.com/sajed-zarrinpour}
+ ]{hyperref}
+```
