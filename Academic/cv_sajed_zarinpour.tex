@@ -1,446 +1,150 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage{fontspec}
 
-% DOCUMENT LAYOUT
-\usepackage{geometry} 
-\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
-\setlength\parindent{0in}
+\usepackage{simplecv}
 
-% ---- CUSTOM COMMANDS
+% to see the layout, you can uncomment these lines
 
-% ---- MARGIN YEARS
-\usepackage{marginnote}
-\newcommand{\amper{}}{\chardef\amper="E0BD }
-\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
-\renewcommand*{\raggedleftmarginnote}{}
-\setlength{\marginparsep}{7pt}
-\reversemarginpar
-
-% CUSTUM FONTS
-% FONTS
-\usepackage[usenames,dvipsnames]{color}
-% CUSTUM FONT FILE
-\setmainfont{Catamaran}[
-	Path=./Catamaran/static/,
-	Scale=0.9,
-	Extension = .ttf,
-	UprightFont=*-Regular,
-	BoldFont=*-Bold,
-	ItalicFont=*-Thin
-]
-
-% PDF SETUP
-\usepackage[
-	bookmarks, 
-	colorlinks, 
-	breaklinks, 
-	% ---- FILL IN HERE THE TITLE AND AUTHOR
-	pdftitle={Sajed Zarinpour - vita},
-	pdfauthor={Sajed Zarinpour},
-	pdfproducer={https://github.com/sajed-zarrinpour}
-]{hyperref}  
-\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue}
+%\usepackage{showframe}
+%\renewcommand\ShowFrameLinethickness{0.15pt}
+%\renewcommand*\ShowFrameColor{\color{red}}
 
 
-% color theme
-\newcommand{\lvlColor}{\textcolor{Cerulean}}
-
-%% tags theme
-%\usepackage[skins]{tcolorbox}
-%\newtcolorbox{tagbox}[1][]{
-%	colback=blue!10!white,
-%	arc=5pt,
-%	auto outer arc,
-%	boxrule=0pt,
-%	enhanced jigsaw,
-%	nobeforeafter,
-%	width=2cm,
-%	height=.5cm,
-%	boxsep=0pt,
-%	halign=center,
-%	valign=center,
-%	box align=center,
-%	colupper={black}, 
-%%	fontupper={\bfseries},
-%	top=\fboxsep,
-%	bottom=\fboxsep,
-%	left=\fboxsep,
-%	right=\fboxsep,
-%	baseline=\fboxsep,
-%	#1
-%}
-%
-%\newcommand{\sotagbox}[2][]{%
-%	\begin{tagbox}[#1]%
-%		#2
-%	\end{tagbox}%
-%}
-
-% using bullets instead of tags for ATS-Friendly consistency
-% for rendering skills in horizontal bullet list
-\usepackage[inline]{enumitem}
-\newlist{mylist}{enumerate*}{1}
-\setlist[mylist]{label=•}
-
-% name title
-\newcommand{\name}[1]{
-	{\Huge \bfseries\textsl{#1}}\\ %name
-	[0.5cm] % leave some space after name
-}
-
-% contact information section
-\usepackage{multicol}
-\newcommand{\contactInfo}[5]{% remmember to adjust the number of entries here
-	\begin{multicols}{2}
-		Address:\\
-		#1 %adress
-		[.2cm]
-		
-		Phone: \texttt{#2}\\
-		email: \href{mailto:#3}{#3}\\
-		\textsc{url}: \href{#4}{#4}\\
-		Linkedin: \href{#5}{#5}
-	\end{multicols} 
-}
-
-% define how a section lookslike:
-\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
-\usepackage[explicit]{titlesec}
-\titleformat{\section}{\Large\bfseries}{\thesection. }{0em}{
-	#1\
-	\lvlColor{\raisedrulefill[0.4ex]{2pt}}
-}
-
-% template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
-\newcommand{\eduEntry}[4]{
-	\years{#1} \bfseries{#2}\\ 
-	 \normalsize\normalfont#3\\
-	 \em\small #4\normalsize\normalfont\\
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\expEntry}[5]{
-	\years{#1} 
 	
-	\bfseries{#2} 
-	\lvlColor{\raisedrulefill[0.4ex]{.5pt}}
-	\normalfont #3, #4	
-
-	\vspace{.2cm}
-	\em\small #5%\usepackage{xunicode}
-	%\usepackage{xltxtra}
-	\defaultfontfeatures{Mapping=tex-text}
-	\normalsize\normalfont
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\confEntry}[3]{
-	\years{#1} \bfseries{#2}\\ 
-	\normalfont\em\small #3
-	\normalsize\normalfont\vspace{.2cm}
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\refEntry}[6]{
-	\years{#1} 
-	\bfseries{#2} \normalfont
-	
-	\vspace{.2cm}
-	 \indent\hspace{.2cm} Job: #3\\
-	 \indent\hspace{.2cm} Email: #4,\\
-	 \indent\hspace{.2cm} Phone: #5, \\
-	 \indent\hspace{.2cm} Address #6
-	\normalsize\normalfont\\	  
-}
-
-
+\usepackage {xcolor}
 \begin{document}
+
 	\name{ Sajed Zarinpour }
-	\contactInfo{
-		Mirza kouchak khan St., End of Isar Dead End, Anzali \\
-		\texttt{4318875672}\\
-		Guilan, Iran\\
-	}{
-		+98-935-218-8208 %phone
-	}
-	{
-		sa.zarinpour@gmail.com %email
-	}
-	{
-		https://sajed-zarrinpour.github.io/ %website
-	}{
-		https://www.linkedin.com/in/sajed-zarinpour/ %linkedin
-	}
+	\contactInfo{Anzali, Guilan, Iran}{+98-935-218-8208}{sa.zarinpour@gmail.com}{https://www.linkedin.com/in/sajed-zarinpour}
 
 	\section*{Education} 
 		\eduEntry
-		{
-			2018-2020
-		}{
-		Institute for Advanced Studies in Basic Sciences, Iran
-		}{
-		M.Sc. in Applied Mathematics
-		}{		 
-		Numerical Method for Solving PDEs with Uncertainty Using Neural-Network
+		{2018 - 2020}
+		{M.Sc. in Applied Mathematics}
+		{Institute for Advanced Studies in Basic Sciences, Iran}
+		{Numerical Method for Solving PDEs with Uncertainty Using Neural-Network}
+		{ 
+			\explist{
+				Impelemented a new layer for padding inputs using tf ; 
+				Gained extensive knowledge on biophysical models
+			}
+			\skills{Python, Numpy, Bash, TensorFlow, Keras, Matplotlib, Octave, Latex} \\
 		}
 		
 		\eduEntry
-		{
-			2012 - 2017
-		}{
-			University of Guilan, Iran
-		}{
-			B.Sc. in Applied Mathematics
-		}{		 
-			Study on GMDH Algorithm for Stock Price
+		{2012 - 2017}
+		{B.Sc. in Applied Mathematics}
+		{University of Guilan, Iran}
+		{Study on GMDH Algorithm for Stock Price}
+		{ 
+			\skills{MATLAB (Octave)}
 		}
-	
+		
 	\section*{Experiences}
 	
-		\expEntry{
-			January 2021 \\ October 2023
-		}{
-			3rd Lieutenant (compulsory Military Service)
-		}{
-			Iranian Traffic Police
-		}{
-			Tehran
-		}{}
+		\expEntry
+		{2021 - 2023}
+		{Compulsory Military Service}
+		{Iranian Traffic Police}
+		{Tehran}{}
+	
+		\expEntry
+		{2020 - 2021}
+		{Database Analyst / Developer}
+		{Tavana System}
+		{Zanjan}
+		{\textcolor{gray}{\skills{Python, Microsoft SQL server, Slack}}}
 		
-		\expEntry{
-			December 2020 \\ August 2021
-		}{
-			Senior Backend Developer
-		}{
-			Tavana System
-		}{
-			Zanjan
-		}{
-			\begin{itemize}
-				\setlength\itemsep{0em}
-				%with Action verbs:
-				\item Innovated solutions for intricate technical quandaries for 8 modules
-				\item Achieved effective task delegation to my team of 4
-				\item Conducted regular meetings
-				\item Mastered RDBMS such as MSSQL through extensive work
-				\item Resolved complex disputes by actively listening and facilitating open dialogue, resulting in mutually beneficial agreements that improved team dynamics and productivity by 30\%
-				\item Upgraded the reporting system using Stimulsoft to improve the quality of reports
-				
-				%without Action verbs
-				
-%				\item Meticulously analyzing and designing solutions for intricate technical quandaries
-%				\item Effectively delegating tasks to my team
-%				\item Conducting regular meetings
-%				\item Extensive work with RDBMS such as MSSQL
-%				\item Resolved conflicts and negotiated agreements between parties in order to reach win-win solutions to disagreements and clarify misunderstandings
-			\end{itemize}
-		}
+%		\expEntry
+%		{2017 - 2020}
+%		{Django Backend Developer}
+%		{ZarinSoft}
+%		{Rasht}
+%		{\skills{Python, Django, MySQL, MongoDB}}
 		
-		\expEntry{
-			April 2017 \\ May 2020
-		}{
-			Web Developer
-		}{
-			ZarinSoft
-		}{
-			Rasht
-		}{
-			\begin{itemize}
-				\setlength\itemsep{0em}
-				% with Action Verbs:
-				\item Contributed to the developer community in Stackoverflow to reach the top 30\% users by 1204 overall reputation
-				\item Designed strategies based on Agile methodology
-				\item Fostered the growth of members' skills through periodic learning/Q\&A sessions
-				\item Developed and maintained a couple of monolithic applications using PHP and Laravel Framework
-				\item Launched Bazarati startup using LAMP stack and Laravel Framework
-				\item Conducted regular website updates and maintenance to ensure functionality and usability
-				
-				%without Action Verbs
-				
-%				\item Design strategies based on Agile methodology
-%				\item Foster the growth of member's skills through periodic learning/Q\&A sessions
-%				\item Developed and maintained a couple of monolithic applications using PHP and Laravel Framework
-%				\item Conducted regular website updates and maintenance to ensure functionality and usability
-			\end{itemize}
-		}
-		
-		\expEntry{
-			June 2010 \\ March 2017
-		}{
-			Freelancer
-		}{
-			Freelancer
-		}{
-			Bandar Anzali
-		}{
-			\begin{itemize}
-				\setlength\itemsep{0em}
-				\item Produced Mahsa integrated library system via VB.NET and MSSQL for a private library that housed nearly three thousand books, increasing their efficiency by 10\% 
-				\item Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++
-				\item Coded a mini CSS and JS framework called My-Zebra that sped up my web production by 25\%
-				\item Implemented a mathematical expression runtime using C++ to showcase a profound numerical solver to my professors
-			\end{itemize}
-		}
+		\expEntry
+		{2010 - 2012}
+		{Freelancer}
+		{Freelancer}
+		{Bandar Anzali}
+		{\textcolor{gray}{\skills{Python, C++, Microsoft SQL Server, VB.NET}}}
 
 	\section*{Reaserch \& Interests}
-		\begin{multicols}{2}
-			\begin{itemize}
-				\item Numerical Analysis
-				\item Finite Element Method
-				\item Mathematical Modeling \& Inverse Problems
-				\item Neural-Networks \& Deep Learning
-				\item Biological Systems \& Oncology
-			\end{itemize}
-		\end{multicols}
+	\interestslist
+	{
+		% research and interests
+		Mathematical Modeling,
+		Biological Systems \& Oncology,
+		Finite Element Method, 
+		Numerical Analysis,
+		Deep Learning,
+		Inverse Problems
+	}
+
 
 	\section*{Schools \& Conferences}
+		
+		\confEntry{2020}{ IASBS Student Presentations in English \\\normalfont \skills{On Solving Partial Differential Equations using Neural Networks} }{ Institute for Advanced Studies in Basic Sciences }	
 	
-		\lvlColor{\raisedrulefill[0.4ex]{.5pt}} Attendant\\
+%		\centerline{***} %\slimseperator
 		
-		\confEntry{
-			January 2019
-		}{
-			From Biophysical Modeling to Simulation Codes (Winter School)
-		}
-		{
-			Graz university, Isfahan University of Technology
-		}
+		\confEntry{2021}{ An Introduction to Variational Analysis (Summer School) }{ Miami University, Urumia University of Technology }
+		
+		\confEntry{2020, 2021}{ One World IMAGINE seminars }{ Siam }
+		
+		\confEntry{2020}{ Solving inverse problems with deep learning }{ UC Berkeley Applied Math Seminar }
+		
+		\confEntry{2019}{ Introduction to Data Science in R }{ Institute for Advanced Studies in Basic Sciences }
+		
+		\confEntry{2019}{ From Biophysical Modeling to Simulation Codes (Winter School) }{ Graz university, Isfahan University of Technology }
 
-		\confEntry{
-			March 2019
-		}{
-			Introduction to Data Science in R
-		}
+	\section*{Skills}	
+	\aside
+	{
+		\bold{Comupter Skills}
+	}
+	{
+		\skills
 		{
-			Institute for Advanced Studies in Basic Sciences
+			Linux,
+			Python,
+			TensorFlow,
+			Keras,
+			Numpy,
+			Pandas,
+			MATLAB,
+			NgSolve,
+			git,
+			Freefem++,
+			C++,
+			Julia,
+			RDBMS\\
 		}
-		
-		\confEntry{
-			2020
-		}{
-			Solving inverse problems with deep learning
-		}
+	}
+	\aside
+	{
+		\bold{Soft Skills}
+	}
+	{
+		\skills
 		{
-			UC Berkeley Applied Math Seminar
-		}
-		
-		\confEntry{
-			2020, 2021
-		}{
-			One World IMAGINE seminars 
-		}
-		{
-			Siam
-		}
-		
-		\confEntry{
-			2021
-		}{
-			An Introduction to Variational Analysis (Summer School) 
-		}
-		{
-			Miami University, Urumia University of Technology
-		}
-		
-
-		\lvlColor{\raisedrulefill[0.4ex]{.5pt}} Presenter\\
-		
-		\confEntry{
-			2020
-		}{
-			IASBS Student Presentations in English 
-		}
-		{
-			Institute for Advanced Studies in Basic Sciences
-		}	
-		
-	\section*{Skills}
+			Teamwork,
+			Stress Management,
+			Innovation
+			}
+	}
 	
-		\bfseries Languages \normalfont\\
-		\indent\hspace{.2cm}Persian - \small\em\bfseries Native\normalfont\\
-		\indent\hspace{.2cm}French - \small\em\bfseries Intermediate\normalfont\\
-		\indent\hspace{.2cm}English \\
-		\indent\hspace{.4cm}\em According to \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}{European language levels}: Basic user (A1, A2) - Independent user (B1, B2) - Proficient user (C1, C2) \normalfont\\
-		\indent\hspace{.4cm}\em Understanding
-		\begin{itemize}
-			\item \em Listening - \bfseries C1 \normalfont
-			\item \em Reading - \bfseries B2 \normalfont
-		\end{itemize}
-		\indent\hspace{.4cm}\em Speaking
-		\begin{itemize}
-			\item \em Spoken Interaction - \bfseries C1 \normalfont
-			\item \em Spoken Production - \bfseries C1 \normalfont
-		\end{itemize}
-		\indent\hspace{.4cm}\em Writing - \bfseries C1 \normalfont \\
-		
-		\bfseries Comupter Skills \normalfont\\
-		
-		\textsl{
-			\begin{mylist}
-				\item C++
-				\item Python
-				\item MATLAB
-				\item Julia
-				\item Keras
-				\item TensorFlow
-				\item Numpy
-				\item Pandas
-				\item Freefem++
-				\item NgSolve
-				\item Linux
-				\item git
-				\item Nodejs
-				\item RDBMS
-				\item Laravel
-			\end{mylist}
-		}
-		
-%		\bfseries Computer Skills \normalfont\\[.5cm]
-%		\indent\hspace{.4cm}Scientific Programming Languages \hspace{1cm}\sotagbox{C++}  \sotagbox{Python}  \sotagbox{MATLAB}  \sotagbox{Julia} \\
-%		
-%		\indent\hspace{.4cm}Scientific Libraries \hspace{3cm}\sotagbox{Keras}  \sotagbox{TensorFlow}  \sotagbox{Numpy}  \sotagbox{Pandas} \\
-%		
-%		\indent\hspace{.4cm}Professional Softwares and Utilities \hspace{1cm}\sotagbox{FreeFem++}  \sotagbox{FEniCS}  \sotagbox{Linux}  \sotagbox{git} \\
-%		
-%		\indent\hspace{.4cm}Web Developing \hspace{3.2cm}  \sotagbox{Nodejs}  \sotagbox{RDBMS}  \sotagbox{Laravel} \\
+	
+	
+	
+	\section*{Languages}
+	
+	\languageEnry{ English }{ Upper Intermediate\\ }
+	
+	\selfAssessedEng{C1}{B2}{C1}{C1}{C1} % Listening, Reading, Spoken Interaction, Spoken Production, Writing
 
 	\section*{References}
 		Available on Request
-%		\refEntry{
-%			M.Sc. Supervisor
-%		}{
-%			Dr. K. Nedaiasl 
-%		}{ % Job
-%			Assistant Professor of Applied Mathematics
-%		}{ % Email
-%			nedaiasl@iasbs.ac.ir
-%		}{}{ % Address
-%			IASBS, mathematics department
-%		}
-%		
-%		\refEntry{
-%			M.Sc. Advisor
-%		}{
-%			Dr. P. Razzaghi 
-%		}{ % Job
-%			Assistant Professor of Computer Science and Information Technology
-%		}{ % Email
-%			p.razzaghi@iasbs.ac.ir
-%		}{}{ % Address
-%			IASBS, computer science and information technology department
-%		}
-%				
-%		\refEntry{
-%			
-%		}{
-%			Prof. H. Saberi Najafi 
-%		}{ % Job
-%			Associate professor of Applied Mathematics
-%		}{ % Email
-%			hnajafi@guilan.ac.ir
-%		}{}{ % Address 
-%			Guilan University, mathematics department
-%		}
+%	\input{refrences}
 
 
 	
