@@ -1,200 +1,176 @@
 \documentclass[10pt, a4paper]{article}
+
 \usepackage{simplecv}
 
+
+%\usepackage{showframe}
+%\renewcommand\ShowFrameLinethickness{0.15pt}
+%\renewcommand*\ShowFrameColor{\color{red}}
+
+
+
+\usepackage {xcolor}
 \begin{document}
-	
-	\name
-	{ % your name
-		 Sajed Zarinpour 
-	}
-	
+	\name{ Sajed Zarinpour }
 	\contactInfo{Anzali, Guilan, Iran}{+98-935-218-8208}{sa.zarinpour@gmail.com}{https://www.linkedin.com/in/sajed-zarinpour}
 	
 	
-	% resume headline. The purpose of the headline is to call attention to your value as a job candidate. Your headline should be brief, attention-grabbing, and relevant to the job you are applying to.  
-%	\headline{
-%		Medior Web Developer with over 9 years experience  
-%		Inthuthiastic web developer with deep insight
-%	}
-
-
-	
 	\section*{Skills} 
-		DataBase 		\skills{ MSSQL, MySQL, MongoDB, Elastic Sreach }
-		
-		JavaScript 		\skills{ jQuery, Nodejs, React, ES2021, TypeScript, webpack, Babel }
-		
-		PHP 			\skills{ PHP, Laravel, Twig, RedBeanPHP }
-		
-		Python 			\skills{ Numpy, Pandas, TensorFlow, Keras, FastAPI, Flask }
-		
-		Other			\skills{ Linux, Git, Postman, Stimulsoft }	
-
+	\aside{Python}{\skills{Django, Numpy, Pandas, TensorFlow, Keras}}
+	\aside{DataBase}{\skills{MSSQL, MySQL, MongoDB, Elastic Sreach}}
+	\aside{JavaScript}{\skills{ES2021, Nodejs, React, jQuery, TypeScript, webpack, Babel}}
+	\aside{PHP}{\skills{Laravel, Twig, RedBeanPHP}}
+	\aside{Other}{\skills{Linux, Git, Postman, Stimulsoft, Docker, Draw.io}}
 	
 	\section*{Experiences}
+	\expEntry
+	{2023 - 2024}
+	{Laravel Backend Developer}
+	{Motegharen}
+	{Guilan}
+	{
+		\explist{
+			Empower ayandeyesabz.com notifications with SMS using Meli Payamak
+		}
+		
+		\textcolor{gray}{\skills {laravel, git, REST api}}
+	}
 	
-	\expEntry{
-		December 2020 \\- August 2021
-	}{
-		Backend Developer
-	}{
-		Tavana System
-	}{
-		Zanjan
-	}{
-		I was responsible for designing database schemas for financials and warehousing sections of an ERP for a private company. Leading a team composed of four professional personnel, to achieve the goal was a great experience that led to achieving:  
+	\expEntry
+	{2021 - 2023}
+	{Compulsory Military Service}
+	{Iranian Traffic Police}
+	{Tehran}{}
+	
+	\expEntry
+	{2020 - 2021}
+	{Database Analyst / Developer}
+	{Tavana System}
+	{Zanjan}
+	{
 		\explist{ 
-			Innovated solutions for intricate technical quandaries for 8 modules;
-			% 
-			Achieved effective task delegation to my team of 4;
-			%
-			Conducted regular meetings;
-			%
-			Mastered RDBMS such as MSSQL through extensive work;
-			%
-			Resolved complex disputes by actively listening and facilitating open dialogue, resulting in mutually beneficial agreements that improved team dynamics and productivity by 30\%;
-			%
-			Upgraded the reporting system using Stimulsoft to improve the quality of reports
+			Used elastic search for searching over routes and stops of school bus project;
+			Design database schema for financial and warehousing section of an ERP for a private company;
+			Impelemented main procedures for all data related actions such as overdue bill and warehouse handling;
+			Crafted a custom markdown for special description system;
+			Upgraded the reporting system using Stimulsoft to improve the quality of reports				
+		}
+		\textcolor{gray}{
+			\skills{Python, Microsoft SQL server, Slack, Stimulsoft, Draw.io}
 		}
 	}
 	
-	\expEntry{
-		April 2017 \\- May 2020
-	}{
-		Backend Developer
-	}{
-		ZarinSoft
-	}{
-		Rasht
-	}{
-		Through this family business, I tried my best to synchronize with the team and push my boundaries.
+	
+	\expEntry
+	{2018 - 2019}
+	{Laravel Backend Developer}
+	{ZarinSoft}
+	{Rasht}
+	{
 		\explist{
-			Contributed to the developer community in Stackoverflow to reach the top 30\% users by 1204 overall reputation;
-			%
-			Designed strategies based on Agile methodology;
-			%
-			Fostered the growth of members' skills through periodic learning/Q\&A sessions;
-			%
-			Developed and maintained a couple of monolithic applications using PHP and Laravel Framework;
-			%
-			Launched Bazarati startup using LAMP stack and Laravel Framework;
-			%
+			Design an online shop for courses using laravel and vue;
+			Connect the shop to the banking system using Zarinpal api;
+			Broadcasting notifications using email and sms (using Kavenegar api);
 			Conducted regular website updates and maintenance to ensure functionality and usability
 		}
+		
+		\textcolor{gray}{
+			\skills{Laravel, Vuejs, MySQL, REST api}
+		}
 	}
 	
-	\expEntry{
-		June 2010 -\\ March 2017
-	}{
-		Freelancer
-	}{
-		Freelancer
-	}{
-		Bandar Anzali
-	}{
+	\expEntry
+	{2017 - 2018}
+	{Django Backend Developer}
+	{ZarinSoft}
+	{Rasht}
+	{
 		\explist{
-			Produced Mahsa integrated library system via VB.NET and MSSQL for a private library that housed nearly three thousand books, increasing their efficiency by 10\% ;
-			%
-			Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++;
-			%
-			Coded a mini CSS and JS framework called My-Zebra that sped up my web production by 25\%;
-			%
-			Implemented a mathematical expression runtime using C++ to showcase a profound numerical solver to my professors
+			Contributed to the developer community in Stackoverflow to reach the top 30\% users;
+			Fostered the growth of members' skills through periodic learning/Q\&A sessions
+		}
+		
+		\textcolor{gray}{
+			\skills{Python, Django, MySQL, MongoDB}
+		}
+	}
+	
+	\expEntry
+	{2010 - 2012}
+	{Freelancer}
+	{Freelancer}
+	{Bandar Anzali}
+	{
+		\explist{
+			Produced Mahsa integrated library system for a private library;
+			Innovated a new definition of graphs to solve the classical NP-hard problem of number partitioning implemented in C++
+		}
+		
+		\textcolor{gray}{
+			\skills{Python, C++, Microsoft SQL Server, VB.NET}
 		}
 	}
 	
 	\section*{Education} 
-		\eduEntry
-		{
-			September 2017 - August 2020
-		}{
-		Institute for Advanced Studies in Basic Sciences, Iran
-		}{
-		M.Sc. in Applied Mathematics
-		}{		 
-		Numerical Method for Solving PDEs with Uncertainty Using Neural-Network
+	\eduEntry
+	{2018 - 2020}
+	{M.Sc. in Applied Mathematics}
+	{Institute for Advanced Studies in Basic Sciences, Iran}
+	{Numerical Method for Solving PDEs with Uncertainty Using Neural-Network}
+	{ 
+		\explist{
+			Impelemented a new layer for padding inputs using tf 
 		}
 		
-		\eduEntry
-		{
-			September 2012 - August 2017
-		}{
-			University of Guilan, Iran
-		}{
-			B.Sc. in Applied Mathematics
-		}{		 
-			Study on GMDH Algorithm for Stock Price
-		}
+		\skills{Python, Numpy, Bash, TensorFlow, Keras, Matplotlib, Octave, Latex} \\
+	}
 	
-
-
-
-	\section*{Conferences \& Presentations}
+	\eduEntry
+	{2012 - 2017}
+	{B.Sc. in Applied Mathematics}
+	{University of Guilan, Iran}
+	{Study on GMDH Algorithm for Stock Price}
+	{ 
+		\skills{MATLAB (Octave)}
+	}
 	
-		\seperatorcolor{\raisedrulefill[0.4ex]{.5pt}} Attendant\\
-		
-		\confEntry{
-			April 2020
-		}{
-			Solving inverse problems with deep learning
-		}
-		{
-			UC Berkeley Applied Math Seminar
-		}
-
-		\confEntry{
-			March 2019
-		}{
-			Introduction to Data Science in R
-		}
-		{
-			Institute for Advanced Studies in Basic Sciences
-		}
-		
-%		\slimseperator Presenter\\
-%		
-%		\confEntry{
-%		 	January	2020
-%		}{
-%			IASBS Student Presentations in English 
-%		}
-%		{
-%			Institute for Advanced Studies in Basic Sciences
-%		}
-		
+	%	\section*{Reaserch \& Interests}
+	%	\interestslist
+	%	{
+		%		% research and interests
+		%		Mathematical Modeling,
+		%		Biological Systems \& Oncology,
+		%		Finite Element Method, 
+		%		Numerical Analysis,
+		%		Deep Learning,
+		%		Inverse Problems
+		%	}
+	
+	
+	%	\section*{Schools \& Conferences}
+	
+	%		\confEntry{2020}{ IASBS Student Presentations in English \\\normalfont \skills{On Solving Partial Differential Equations using Neural Networks} }{ Institute for Advanced Studies in Basic Sciences }	
+	
+	%		\centerline{***} %\slimseperator
+	
+	%		\confEntry{2021}{ An Introduction to Variational Analysis (Summer School) }{ Miami University, Urumia University of Technology }
+	
+	%		\confEntry{2020, 2021}{ One World IMAGINE seminars }{ Siam }
+	
+	%		\confEntry{2020}{ Solving inverse problems with deep learning }{ UC Berkeley Applied Math Seminar }
+	
+	%		\confEntry{2019}{ Introduction to Data Science in R }{ Institute for Advanced Studies in Basic Sciences }
+	
+	%		\confEntry{2019}{ From Biophysical Modeling to Simulation Codes (Winter School) }{ Graz university, Isfahan University of Technology }
+	
+	
 	\section*{Languages}
-			English - \languagelvl{ Upper Intermediate }
+	
+	\languageEnry{ English }{ Upper Intermediate\\ }
+	
+	%
+	%	\section*{References}
+	%		Available on Request
+	%	\input{refrences}
+	
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
