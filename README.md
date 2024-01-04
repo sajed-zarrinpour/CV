@@ -48,10 +48,10 @@
 
 ## Research & Interests
 
+```\interestslist{item1, item2, item3}```
+
 > [!WARNING]
 > Note that this list uses the `,` sign to separate items.
-
-```\interestslist{item1, item2, item3}```
 
 ## Schools & Conferences
 
@@ -69,17 +69,18 @@
 
 ## Skills
 
+```\skills{item1, item2, item3}```
+
 > [!WARNING]
 > Note that this list uses the `,` sign to separate items.
 
-```\skills{item1, item2, item3}```
-
 ## References
+
+```\refEntry{(<Relation>)}{<Title & Name>}{<Associasion>}{<eMail>}{<Address>}```
 
 > [!TIP]
 > Try not to include your references occasionally. You can say **Available on request** in this section. Moreover, I suggest separating your references in another file.
 
-```\refEntry{(<Relation>)}{<Title & Name>}{<Associasion>}{<eMail>}{<Address>}```
 ## PDF Metadata
 > [!CAUTION]
 > Don't forget to edit lines 29, 30, and 31 in the `simplecv.sty` file. You shall see the following content.
