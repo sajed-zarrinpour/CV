@@ -1,3 +1,4 @@
+![Banner](/banner.png)
 # simple CV
 
 ## Import
