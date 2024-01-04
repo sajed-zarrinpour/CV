@@ -1,11 +1,15 @@
 # simple CV
 
-> [!IMPORTANT]
-> Replace values wrapped in `<` and `>` signs with your actual data.
+## Import
+
+```\usepackage{simplecv}```
 
 ## Name
 
 ```\name{<Your Name>}```
+
+> [!IMPORTANT]
+> Replace values wrapped in `<` and `>` signs with your actual data.
 
 > [!NOTE]
 > Please do not add a space after`{` or `}` symbols in commands. For example use `\name{Sajed Zarinpor}` instead of `\name{ Sajed zarinpour }`
