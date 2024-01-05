@@ -42,7 +42,7 @@
 
 > [!TIP]
 > Entries to \explist are divided by `;`. If you wish to separate them in your code, use `%` so it will not interrupt the command and remain readable.
-> Do not add `;` at the last entry
+> Do not add `;` at the end of the last entry
 
 > [!TIP]
 > In my opinion, including the skills used in a job here in your job entry is good practice.
