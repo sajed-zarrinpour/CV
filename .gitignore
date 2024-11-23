@@ -1,5 +1,22 @@
 # ignore latex auto generate files
-*.oux
-*.aux
-*.log
-*.synctex.gz
+Academic/*.oux
+Academic/*.aux
+Academic/*.log
+Academic/*.synctex.gz
+
+Undystry/*.oux
+Undystry/*.aux
+Undystry/*.log
+Undystry/*.synctex.gz
+Academic/cv_sajed_zarinpour.fdb_latexmk
+Academic/cv_sajed_zarinpour.fls
+Academic/cv_sajed_zarinpour.out
+Academic/cv_sajed_zarinpour.xdv
+Academic/latex66709.fls
+Industry/cv_sajed_zarinpour.aux
+Industry/cv_sajed_zarinpour.fdb_latexmk
+Industry/cv_sajed_zarinpour.fls
+Industry/cv_sajed_zarinpour.log
+Industry/cv_sajed_zarinpour.out
+Industry/cv_sajed_zarinpour.synctex.gz
+Industry/cv_sajed_zarinpour.xdv
