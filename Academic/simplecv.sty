@@ -64,14 +64,20 @@
 \usepackage{forarray} % to use foreach on arrays
 % for rendering skills in horizontal bullet list
 \usepackage{paralist}
-\newcommand{\skills}[1]{
-		\begin{inparaitem}
-			\ForEach
-			{,} %seperator
-			{\item \thislevelitem \hspace{3pt}} %for loop body
-			{ #1} %string input holding items seperated by seperator
-		\end{inparaitem}
+\newcommand{\skills}[1]{% Updated skills formatting
+    \begin{itemize}[noitemsep,leftmargin=*] % Compact list
+        \itemsep0em 
+        \ForEach{,}{\item \thislevelitem}{#1}
+    \end{itemize}
 }
+% \newcommand{\skills}[1]{
+% 		\begin{inparaitem}
+% 			\ForEach
+% 			{,} %seperator
+% 			{\item \thislevelitem \hspace{3pt}} %for loop body
+% 			{ #1} %string input holding items seperated by seperator
+% 		\end{inparaitem}
+% }
 % option 2: uncomment next 3 lines:
 %\usepackage[inline]{enumitem}
 %\newlist{skills}{enumerate*}{1}
@@ -94,24 +100,43 @@
 }
 
 % template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
-\newcommand{\eduEntry}[5]{
-	\aside{#1}{
-		 \bfseries{#2}, \normalsize\normalfont#3\\
-		\normalfont #4
-		\color{gray}#5\normalsize\normalfont
-	}
+% \newcommand{\eduEntry}[5]{
+% 	\aside{#1}{
+% 		 \bfseries{#2}, \normalsize\normalfont#3\\
+% 		\normalfont #4
+% 		\color{gray}#5\normalsize\normalfont
+% 	}
+% }
+\newcommand{\eduEntry}[4]{% Updated education entry
+    \textbf{#2} \hfill #1 \\
+    \textit{#3} \\ % Institute italicized
+    #4  % Degree/Thesis information
 }
 
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\expEntry}[5]{
-	\aside{#1}{
-		\large\bfseries{#2} at \normalfont #3, #4	
-		
-		 #5
-		\defaultfontfeatures{Mapping=tex-text}
-		\normalsize\normalfont\vspace{.2cm}
-	}
+\newcommand{\packageEntry}[3]{% Updated education entry
+    \textbf{#2} \hfill #1 \\
+    #3  % Degree/Thesis information
 }
+
+
+% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
+% \newcommand{\expEntry}[5]{
+% 	\aside{#1}{
+% 		\large\bfseries{#2} at \normalfont #3, #4	
+		
+% 		 #5
+% 		\defaultfontfeatures{Mapping=tex-text}
+% 		\normalsize\normalfont\vspace{.2cm}
+% 	}
+% }
+\newcommand{\expEntry}[5]{% Updated experience entry
+    \textbf{#2} \hfill #1 \\ % Title and date on same line
+    \textit{#3}, #4 \\ % Company and city italicized
+    \begin{itemize}[noitemsep,leftmargin=*]
+        \ForEach{;}{\item \thislevelitem}{#5} % Use semicolon as separator in explist
+    \end{itemize}
+}
+
 
 % template for experience entries, use : \explist{item1;item2}
 \newcommand{\explist}[1]{
