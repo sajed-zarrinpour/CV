@@ -1,7 +1,7 @@
 \documentclass[10pt, a4paper]{article}
 
 \usepackage{simplecv}
-
+\usepackage{pdfpages}
 % to see the layout, you can uncomment these lines
 
 %\usepackage{showframe}
@@ -11,111 +11,39 @@
 
 \begin{document}
 
-	\name{ Sajed Zarinpour }
+	\name{ Sajed Zarinpour Nashroudkoli}
 	\contactInfo
 	{Tehran, Tehran, Iran}
-	{+98-935-218-8208}
+	{ +98-935-218-8208 }
 	{sajed.zarinpour@gmail.com}
 	{https://www.linkedin.com/in/sajed-zarinpour}
 
 	\section*{Education} 
 		\eduEntry
-		{2018 - 2020}
+		{{Sep. 2017\\Oct. 2020} \hspace{.5em}\normalsize}
 		{M.Sc. in Applied Mathematics}
 		{Institute for Advanced Studies in Basic Sciences, Iran}
 		{Numerical Method for Solving PDEs with Uncertainty Using Neural-Network}
 		{ 
 			\explist{
-				Impelemented a new layer for padding inputs using tf ; 
+				Implemented a new layer for padding inputs using tf \href{https://github.com/sajed-zarrinpour/Solving-PDE-with-Uncertainty-surrogate-forward-model-keras/blob/master/NLSE/NLSE2D.ipynb}{[GitHub Repo]}; 
 				Gained extensive knowledge on biophysical models
 			}
-			\skills{Python, Numpy, Bash, TensorFlow, Keras, Matplotlib, Octave, Latex} \\
+			\skills{Python, Numpy, Bash, TensorFlow, Keras, Matplotlib, Octave, Latex} 
 		}
 		
 		\eduEntry
-		{2012 - 2017}
+		{\small{Sep. 2012\\Sep. 2017}\hspace{.5cm}}
 		{B.Sc. in Applied Mathematics}
 		{University of Guilan, Iran}
 		{Study on GMDH Algorithm for Stock Price}
 		{ 
-			\skills{MATLAB (Octave)}
+			\explist{
+				Represented a novel definition for Graphs to solve recursive problems including conditional based actions to solve NP-hard partition problem \href{https://github.com/sajed-zarrinpour/Number-Partitioning/blob/master/Graph.md}{[GitHub]}
+			}
+			\skills{MATLAB (Octave), C++}
 		}
-		
-	\section*{Experiences}
-
-		\expEntry
-		{2024 - Present}
-		{Senior Web Developer}
-		{Islamic Azad University Electronic Campus}
-		{Tehran}
-		{\textcolor{gray}{\skills{Laravel, Moodle, PHP, MySQL, Linux}}}
-
-		\expEntry
-		{2023 - 2024}
-		{Web Developer}
-		{Motegharen}
-		{Rasht}
-		{\textcolor{gray}{\skills{Laravel, Rest API}}}
 	
-		\expEntry
-		{2021 - 2023}
-		{Compulsory Military Service}
-		{Iranian Traffic Police}
-		{Tehran}{}
-	
-		\expEntry
-		{2020 - 2021}
-		{Database Analyst / Developer}
-		{Tavana System}
-		{Zanjan}
-		{\textcolor{gray}{\skills{Python, Microsoft SQL server, Slack}}}
-		
-%		\expEntry
-%		{2017 - 2020}
-%		{Django Backend Developer}
-%		{ZarinSoft}
-%		{Rasht}
-%		{\skills{Python, Django, MySQL, MongoDB}}
-		
-		\expEntry
-		{2010 - 2012}
-		{Freelancer}
-		{Freelancer}
-		{Bandar Anzali}
-		{\textcolor{gray}{\skills{Python, C++, Microsoft SQL Server, VB.NET}}}
-
-	\section*{Reaserch \& Interests}
-	\interestslist
-	{
-		% research and interests
-		Mathematical Modeling,
-		Biological Systems \& Oncology,
-		Finite Element Method, 
-		Numerical Analysis,
-		Deep Learning,
-		Inverse Problems
-	}
-
-
-	\section*{Schools \& Conferences}
-		
-		\confEntry{2020}{ IASBS Student Presentations in English \\\normalfont \skills{On Solving Partial Differential Equations using Neural Networks} }{ Institute for Advanced Studies in Basic Sciences }	
-	
-		% \centerline{***} 
-		\slimseperator
-		
-		\confEntry{2021, 2024}{ Population Dynamics }{ Jena University }
-
-		\confEntry{2021}{ An Introduction to Variational Analysis (Summer School) }{ Miami University, Urumia University of Technology }
-		
-		\confEntry{2020, 2021}{ One World IMAGINE seminars }{ Siam }
-		
-		\confEntry{2020}{ Solving inverse problems with deep learning }{ UC Berkeley Applied Math Seminar }
-		
-		\confEntry{2019}{ Introduction to Data Science in R }{ Institute for Advanced Studies in Basic Sciences }
-		
-		\confEntry{2019}{ From Biophysical Modeling to Simulation Codes (Winter School) }{ Graz university, Isfahan University of Technology }
-
 	\section*{Skills}	
 	\aside
 	{
@@ -136,7 +64,8 @@
 			Freefem++,
 			C++,
 			Julia,
-			RDBMS\\
+			RDBMS,
+			LaTeX
 		}
 	}
 	\aside
@@ -149,25 +78,85 @@
 			Teamwork,
 			Stress Management,
 			Innovation
-			}
+		}
 	}
 	
+	\section*{Research \& Interests}
+	\interestslist
+	{
+		% research and interests
+		Mathematical Modeling,
+		Biological Systems,
+		Finite Element Method, 
+		Numerical Analysis,
+		Deep Learning,
+		Inverse Problems
+	}
+
+		
+	\section*{Experiences}
+
+		\expEntry
+		{Apr. 2024\\Present}
+		{Senior Web Developer}
+		{Islamic Azad University Electronic Campus}
+		{Tehran}{}
+%		{\textcolor{gray}{\skills{Laravel, Moodle, PHP, MySQL, Linux}}}
+
+		\expEntry
+		{Dec. 2023\\March 2024}
+		{Web Developer}
+		{Motegharen}
+		{Rasht}{}
+%		{\textcolor{gray}{\skills{Laravel, Rest API}}}
 	
+		\expEntry
+		{Jan. 2021\\Nov. 2023}
+		{Conscription}
+		{Iranian Traffic Police}
+		{Tehran}{}
 	
+		\expEntry
+		{Dec. 2020\\Nov. 2021}
+		{Database Analyst / Developer}
+		{Tavana System}
+		{Zanjan}{}
+%		{\textcolor{gray}{\skills{Python, Microsoft SQL server, Slack}}}
+		
+	\section*{Schools \& Conferences}
+		
+		\confEntry{2020}{ IASBS Student Presentations in English \\ \normalfont \skills{Presented: On Solving Partial Differential Equations using Neural Networks} }{ Institute for Advanced Studies in Basic Sciences }	
+	
+%		 \centerline{***} 
+%		\slimseperator
+		
+		\confEntry{2021, 2024}{ Population Dynamics }{ Jena University }
+
+		\confEntry{2021}{ An Introduction to Variational Analysis (Summer School) }{ Miami University, Urmia University of Technology }
+		
+		\confEntry{2020, 2021}{ One World IMAGINE seminars }{ Siam }
+		
+		\confEntry{2020}{ Solving inverse problems with deep learning }{ UC Berkeley Applied Math Seminar }
+		
+		\confEntry{2019}{ Introduction to Data Science in R }{ Institute for Advanced Studies in Basic Sciences }
+		
+		\confEntry{2019}{ From Biophysical Modeling to Simulation Codes (Winter School) }{ Graz university, Isfahan University of Technology }	
 	
 	\section*{Languages}
 	
-	\languageEnry{ English }{ Upper Intermediate\\ }
+	\languageEnry{ \textbf{English}}{ Upper Intermediate} Listening C1, Reading B2, Spoken Interaction C1, Spoken Production C1, Writing C1
+	\small (According to \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}{European language levels}: Basic user (A1, A2) - Independent user (B1, B2) - Proficient user (C1, C2))\\
+%	\selfAssessedEng{C1}{B2}{C1}{C1}{C1} % Listening, Reading, Spoken Interaction, Spoken Production, Writing
 	
-	\selfAssessedEng{C1}{B2}{C1}{C1}{C1} % Listening, Reading, Spoken Interaction, Spoken Production, Writing
+	\languageEnry{\textbf{German}}{(Beginner)} % Listening A1, Reading A1, Spoken Interaction A1, Spoken Production A1, Writing A1 \\\\
 
 	\section*{References}
-		Available on Request
-%	\input{refrences}
+%		Available on Request
+	\input{refrences}
 
+%	\headline{Cover Letter}
+	\includepdf[pages=-]{CoverLetter/cover_letter_sajed_zarinpour.pdf}
 
-	
-	
-
+	\input{sor}
 		
 \end{document}

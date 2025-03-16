@@ -13,6 +13,12 @@
 	\end{minipage}\hspace{10pt}\mbox{}\par\medskip%\hspace{4em}
 }
 
+\newcommand{\sectionaside}[2]{
+	\par\medskip\noindent#1\normalsize\hspace{5pt}
+	\begin{minipage}[t]{\dimexpr\linewidth-5em\relax}
+		#2
+	\end{minipage}\hspace{1pt}\mbox{}
+}
 
 % FONTS
 \usepackage{fontspec}
@@ -37,7 +43,7 @@
 \newcommand{\seperatorcolor}{\textcolor{Cerulean}} % color theme
 \newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
 \newcommand{\slimseperator}{\seperatorcolor{\raisedrulefill[0.4ex]{.5pt}}} % the slim seperator
-\newcommand{\seperator}{\seperatorcolor{\raisedrulefill[0.4ex]{4pt}}} % seperator
+\newcommand{\seperator}{\seperatorcolor{\raisedrulefill[0.4ex]{3pt}}} % seperator
 
 % NAME
 \newcommand{\name}[1]{
@@ -48,10 +54,9 @@
 % contact information section
 \usepackage{multicol}
 \newcommand{\contactInfo}[4]{
-\textcolor{gray}{#1}\\
-\textcolor{gray}{Phone: \hspace{.7em}\texttt{#2}}\\
-\textcolor{gray}{Email: \hspace{1.1em}\href{mailto:#3}{#3}}\\
-\textcolor{gray}{LinkedIn: \href{#4}{#4}}
+\textcolor{gray}{#1} \hfill \textcolor{gray}{LinkedIn: \href{#4}{#4}} \\
+\textcolor{gray}{Phone: \hspace{.7em}\texttt{#2}} \hfil \hspace{.5cm} \textcolor{gray}{Email: \hspace{1.1em}\href{mailto:#3}{#3}}
+
 }
 
 % resume headline
@@ -89,8 +94,7 @@
 \usepackage[explicit]{titlesec}
 \titleformat{\section}{\Large}{\thesection. }{0em}{
 %	\years{\seperator}
-\bfseries #1 \normalfont
-\seperator
+\sectionaside{\slimseperator}{\bfseries #1 \normalfont}
 }
 
 % template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
