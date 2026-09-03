@@ -6,199 +6,171 @@
 %\usepackage{showframe}
 %\renewcommand\ShowFrameLinethickness{0.15pt}
 %\renewcommand*\ShowFrameColor{\color{red}}
-
-
-
+ 
 \usepackage {xcolor}
 \begin{document}
-	\name{ Sajed Zarinpour  Nashroudkoli}
-	
+
+	\headline{ Sajed Zarinpour Nashroudkoli} 
+	\headline{\color{gray}Curriculum Vitae}
 	\contactInfo
-	{Tehran, Tehran, Iran}
-	{+98-935-218-8208}
-	{sa.zarinpour@gmail.com}
+	{ +98-935-218-8208 }
+	{sajed.zarinpour@gmail.com}
+	{https://github.com/sajed-zarrinpour}
 	{https://www.linkedin.com/in/sajed-zarinpour}
+
 	\section*{Summary}
-	Experienced backend developer with a proven ability to design, develop, and optimize high-performance web applications and systems. Possesses a Master of Science in Applied Mathematics, demonstrating strong analytical and problem-solving skills. 
-	
-	\section*{Skills}
-	
-	\textbf{Concepts}\hspace{0.5em} \skills{Design Patterns, DDD, TDD, MVC, OOP}
-	
-	\textbf{DevOps} \hspace{0.8em} \skills{Linux Server, Docker, CI/CD}
-	
-	\textbf{PHP}\hspace{2.85em}\skills{Laravel, Symphony, PHP, RESTful APIs}
-	
-	\textbf{Database}\hspace{0.8em}\skills{MySQL, MSSQL, Elasticsearch, Redis}
-	
-	\textbf{JavaScript}\hspace{0.3em}\skills{ES2021, jQuery}
-	
-	\textbf{Other}\hspace{2.4em}\skills{Python, GO, Git, Draw.io, PHPDoc, Swagger}
-	
+	% Experienced backend developer with a proven ability to design, develop, and optimize high-performance web applications and systems. Possesses a Master of Science in Applied Mathematics, demonstrating strong analytical and problem-solving skills. 
+	Backend developer with 8+ years of experience in designing and optimizing high-performance web applications. Skilled in PHP, MySQL, Go, PostgreSQL, Kafka, and Redis. Proven ability to deliver scalable web platforms with API integrations, and CI/CD pipelines with measurable performance gains.
+	\section*{Skills} 
+	PHP,
+	Laravel,
+	GraphQl,
+	MySQL,
+	Clickhouse,
+	Symfony,
+	PostgreSQL,
+	Redis,
+	Kafka,
+	Linux,
+	Docker,
+	Swagger,
+	PHPDoc,
+	Git,
+	CI/CD,
+	Nginx,
+	Go,
+	NextJs,
+	ReactJs,
+	JavaScript (ES2021)
 	\section*{Experiences}
 	\expEntry
-	{Present\\Apr. 2024}
+	{Dec. 2025-Present\hspace{.5cm}}
+	{Backend Developer}
+	{AustroByte}
+	{(Remote)}
+	{
+		\explist{
+			Empovered users with fine grid control over complex events by developing an automatic feed generation system, resulted in:
+			\begin{itemize}
+				\item a powerful panel to define custom event based feeds for various bussiness situations, cutting 80\% of the need to watch for market changes manually
+				\item improved reaction time to changes in market by 5\% by pushing fine tuned feeds through various notification channels
+				\item improved work experience via a flexible template engine to let user pack all the data needed to handle a market event in the generated feed report itself
+				\item introduced a cron based employee monitoring system to monitor inactive employees based on custom defined rules periodically, resulted in better task dispersion
+				\item implemented a powerful logical engine to evaluate if a complex events (events across multiple -not neccessarily related- models) meet certain conditions
+			\end{itemize};
+			Maintained existing Graphql Api for BOM upload in a tenant based system;
+			Improved query speed for Availabilities and Manufacturers using clickhouse;
+			Upgraded micro service based models to support custom notification channels, simplifying the process in 23 different usecases
+		}
+	}
+
+	\expEntry
+	{Mar. 2025-Dec. 2025\hspace{.5cm}}
+	{System Designer / Backend Developer}
+	{Zhikan}
+	{(Remote)}
+	{
+		\explist{
+			Developed a complete Internet Pay Gate (IPG) system, processing 65K+ transactions per day;
+			Optimized payment pipeline using asynchronous message queues, caching, and connection pooling, achieving 100\% data integrity and 1.2µs callback time on load tests;
+			Built a detailed CI/CD test suite for comprehensive payment cycle testing, allowing for the identification of bottlenecks that improved average response time by 25\%, ultimately enhancing customer satisfaction and retention rates;
+			Spearheaded the design and implementation of a sharding strategy to isolate the 5 most demanding clients, improving system resilience, and cutting total system latency by at least 15\%;
+			Architected merchant and admin API panels utilizing RESTful principles for streamlined data management and comprehensive reporting, optimizing data retrieval speeds by 30\% across all user roles
+		}
+	}
+
+	\expEntry
+	{Apr. 2024-Mar. 2025\hspace{.5cm}}
 	{System Designer/Web Developer}
-	{\href{https://int.ec.iau.ir/en/homepage/}{Islamic Azad University Electronic Campus}}
-	{Tehran}
+	{Azad University Electronic Campus}
+	{(Onsite)}
 	{
 		\explist{
-			%			Designed and implemented checks to make sure the integration of data between \href{https://edu.iau.ac.ir}{https://edu.iau.ac.ir} and \href{https://vadana.ec.iau.ir}{https://vadana.ec.iau.ir} are valid, and generating related reports that boost the functionality of support division by 5 Percent; 
-			Reducing the RPS of \href{https://vadana.ec.iau.ir}{https://vadana.ec.iau.ir} by 50 percent via improving authorization strategy and leveraging Moodle middlewares;
-			Upgraded and refactored \href{http://ticket.iauec.ac.ir/}{IAU ticketing system}, improving its PLT from 3.6 Sec to 0.056 Sec by optimizing database queries, reducing API calls, and caching;
-			%        Contributed to the development of 17 products, including \href{https://vadaroom.ec.iau.ir/v2/}{vadaroom.ec.iau.ir} and \href{https://vadana.ec.iau.ir}{vadana.ec.iau.ir};
-			%        Analyzed products for security vulnerabilities and performance bottlenecks;
-%			Developed Moodle plugins, such as academic course roadmaps and public session rooms;
-			Designed a custom project management system with a specific focus on monitoring tasks of sub-divisions, with an emphasis on automatic bottleneck discovery and event-based report generation;
-			Designed and implemented performance tests for BBB load balancer servers to deliver a robust experience in online classes for students\\
+			Revamped authorization protocols and Moodle middlewares for the Vadana learning management system, decreasing server load by 30\% during peak hours and supporting 3.6k concurrent users;
+			Upgraded and refactored AU ticketing system, improving its play time from 3.6s to 56ms by optimizing database queries, reducing API calls, and caching
 		}
-		\textcolor{gray}{\skills{Laravel, Symphony, Redis, Moodle, PHP, MySQL, Linux, Swagger, PHPDoc, Apache JMeter, Nginx, CI/CD, Docker, Adobe connect}}
 	}
 	
 	\expEntry
-	{March 2024\\Dec. 2023}
-	{Laravel Backend Developer} % Highlight Laravel again
+	{Dec. 2023-Mar. 2024\hspace{.5cm}}
+	{Backend Developer} % Highlight Laravel again
 	{Motegharen}
-	{Guilan}
+	{(Remote)}
 	{
 		\explist{
-			Crafted an online Learning Management System;
-			Wrote a package for utilizing \href{https://spotplayer.ir/}{https://spotplayer.ir/} APIs in Laravel
+			Developed an online learning management system, improving user \\experience, course discovery and content delivery which ultimately led to increasing student enrollment from 700 to 1.3K;
+			Conducted regular website updates and maintenance to ensure functionality and usability, reducing average downtime to 15 minutes monthly
 		}
-		\textcolor{gray}{\skills{Laravel, Git, REST API}}
 	}
 	
 	
+	% \expEntry
+	% {Jan. 2022-Nov. 2023}
+	% {Compulsory Military Service}
+	% {Iranian Traffic Police}
+	% {(Remote)}{}
+
 	\expEntry
-	{Nov. 2023\\Jan. 2022}
-	{Compulsory Military Service}
-	{Iranian Traffic Police}
-	{Tehran}{}
-	
-	\expEntry
-	{Nov. 2021\\Dec. 2020}
+	{Dec. 2020-Nov. 2021\hspace{.5cm}}
 	{Database Analyst / Developer}
-	{\href{https://www.linkedin.com/company/tavanasys/}{Tavana System}}
-	{Zanjan}
+	{Tavana System}
+	{(Hybrid)}
 	{
 		\explist{ 
-			%			Used elastic search for searching over routes and stops of school bus project;
-			Design database schema for the financial and warehousing section of an ERP for a private company
-			%			Implemented main procedures for all data-related actions such as overdue bills and warehouse handling;
-			%			Crafted a custom markdown for a special description system;
-			%			Upgraded the reporting system using Stimulsoft to improve the quality of reports				
-		}
-		\textcolor{gray}{
-			\skills{Python, Microsoft SQL server, Stimulsoft, Draw.io}
+			Designed database schema for financial and warehousing modules of an ERP system, improving query speed by 7\%;
+			Crafted a custom markdown for financial reporting system, helping users speeding up writing custom invoices by 50\%, resulting in an increased \\accuracy and clarity of the user generated reports
 		}
 	}
-	
-	
-	%	\expEntry
-	%	{Jan. 2020\\Nov. 2017}
-	%	{Laravel Backend Developer}
-	%	{ZarinSoft}
-	%	{Rasht}
-	%	{
-		%		\explist{
-			%			Design a Learning Management System using laravel and Vue
-			%			% Connected the shop to the banking system using Zarinpal API;
-			%			% Broadcasted notifications using email and SMS (using Kavenegar API);
-			%			% Conducted regular website updates and maintenance to ensure functionality and usability
-			%		}
-		%		
-		%		\textcolor{gray}{
-			%			\skills{Laravel, Vuejs, MySQL, REST api}
-			%		}
-		%	}
-	
-	% \expEntry
-	% {Nov. 2017\\Oct. 2015}
-	% {Django Backend Developer}
-	% {ZarinSoft}
-	% {Rasht}
-	% {
-		% 	\explist{
-			% 		Contributed to the developer community in Stackoverflow to reach the top 30\% users;
-			% 		Fostered the growth of members' skills through periodic learning/Q\&A sessions
-			% 	}
-		
-		% 	\textcolor{gray}{
-			% 		\skills{Python, Django, MySQL, MongoDB}
-			% 	}
-		% }
-	
-	%	\expEntry
-	%	{Nov. 2017\\Apr. 2010}
-	%	{Early Career Development}
-	%	{Various Companies}
-	%	{Rasht / Bandar Anzali}
-	%	{
-		%		\explist{
-			%			Innovated a \href{https://github.com/sajed-zarrinpour/Number-Partitioning/blob/master/Graph.md}{new definition of graphs} to solve the classical NP-hard problem of \href{https://github.com/sajed-zarrinpour/Number-Partitioning/tree/master}{number partitioning} implemented in C++;
-			%			Developed the "Mahsa" integrated library system
-			%			% Gained experience in Django and Python web development (ZarinSoft).;
-			%			% Explored various technologies including C++, VB.NET, and SQL Server;
-			%		}
-		%		\textcolor{gray}{\skills{Python, Django, C++, VB.NET, SQL Server}}
-		%	}
-	
-	% \expEntry
-	% {Dec. 2015\\Apr. 2010}
-	% {Freelancer}
-	% {Freelancer}
-	% {Bandar Anzali}
-	% {
-		% 	\explist{
-			% 		Produced Mahsa integrated library system for a private library;
-			% 		Innovated a \href{https://github.com/sajed-zarrinpour/Number-Partitioning/blob/master/Graph.md}{new definition of graphs} to solve the classical NP-hard problem of \href{https://github.com/sajed-zarrinpour/Number-Partitioning/tree/master}{number partitioning} implemented in C++
-			% 	}
-		
-		% 	\textcolor{gray}{
-			% 		\skills{Python, C++, Microsoft SQL Server, VB.NET}
-			% 	}
-		% }
+
+	\expEntry
+	{Oct. 2016 - Dec. 2020\hspace{.5cm}}
+	{Back End Developer}
+	{ZarrinSoft}
+	{(Remote)}
+	{
+		\explist{
+			Design a mathematical expression runtime and number partitioning program in C++ to showcase important programming concepts like data structures through a challenge to my team;
+			% Foster the growth of member's skills through periodic learning/Q\&A sessions;
+			Developed and maintained a couple of monolithic applications using PHP and Laravel Framework;
+			Conducted regular website updates and maintenance to ensure functionality and usability
+		}
+% Skills: REST APIs · Linux · Django · Open API · Team work · Research · MySQL · Problem solving · Python · Laravel · PHP · Stress management · Vue.js
+	}
 	
 	\section*{Published Packages}
 	\packageEntry
 	{2024}
 	{
-		\href{https://packagist.org/packages/sajed-zarinpour/spotplayer}{sajed-zarinpour/spotplayer}, (A wrapper for spotplayer.ir video service (DRM) API).
+		https://packagist.org/packages/sajed-zarinpour/meloquent
 	}
-	{ 		
-		\skills{PHP, Laravel} 
-	}
+	{Microservice toolkit for eloquent}
 	\packageEntry
 	{2024}
 	{
-		\href{https://packagist.org/packages/sajed-zarinpour/db}{sajed-zarinpour/db}, (A simple yet powerfull database adaptor).
+		https://packagist.org/packages/sajed-zarinpour/spotplayer
 	}
-	{ 		
-		\skills{PHP} 
+	{Laravel wrapper for spotplayer video service}
+	\packageEntry
+	{2024}
+	{
+		https://packagist.org/packages/sajed-zarinpour/db
 	}
-	
+	{Lightweight PHP database adaptor }
+
 	\section*{Education} 
 	\eduEntry
-	{Oct. 2020\\Sep. 2017}
+	{Sep. 2017-Oct. 2020\hspace{.5cm}}
 	{M.Sc. in Applied Mathematics}
 	{Institute for Advanced Studies in Basic Sciences, Iran}
 	{Numerical Method for Solving PDEs with Uncertainty Using Neural-Network}
-	{ 
-		\explist{
-			Implemented a new layer for padding inputs using tf 
-		}
-		
-		\skills{Python, Numpy, Bash, TensorFlow, Keras, Matplotlib, Octave, Latex} 
-	}
-	
+	{}
+
 	\eduEntry
-	{Sep. 2017\\Sep. 2012}
+	{Sep. 2012-Sep. 2017\hspace{.5cm}}
 	{B.Sc. in Applied Mathematics}
 	{University of Guilan, Iran}
 	{Study on GMDH Algorithm for Stock Price}
-	{ 
-		\skills{MATLAB (Octave)}
-	}
+	{}
 	
 %	\section*{Reaserch \& Interests}
 %	\interestslist
@@ -212,11 +184,11 @@
 %		Inverse Problems
 %	}
 	
-	
+
 	%	\section*{Schools \& Conferences}
 	
 	%		\confEntry{2020}{ IASBS Student Presentations in English \\\normalfont \skills{On Solving Partial Differential Equations using Neural Networks} }{ Institute for Advanced Studies in Basic Sciences }	
-	
+
 	%		\centerline{***} %\slimseperator
 	
 	%		\confEntry{2021}{ An Introduction to Variational Analysis (Summer School) }{ Miami University, Urumia University of Technology }
@@ -229,21 +201,13 @@
 	
 	%		\confEntry{2019}{ From Biophysical Modeling to Simulation Codes (Winter School) }{ Graz university, Isfahan University of Technology }
 	
-	
+
 	\section*{Languages}
-	
-	\languageEnry{ \textbf{English}}{ Upper Intermediate} Listening C1, Reading B2, Spoken Interaction C1, Spoken Production C1, Writing C1
-	%	\selfAssessedEng{C1}{B2}{C1}{C1}{C1} % Listening, Reading, Spoken Interaction, Spoken Production, Writing
-	
-	%\slimseperator
-	
-	\languageEnry{\textbf{German}}{ Beginner} Listening A1, Reading A1, Spoken Interaction A1, Spoken Production A1, Writing A1 \\
-	%	\selfAssessedEng{A1}{A1}{A1}{A1}{A1}
-	
-	\small (According to \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}{European language levels}: Basic user (A1, A2) - Independent user (B1, B2) - Proficient user (C1, C2))
-	%
-	%	\section*{References}
-	%		Available on Request
+	\languageEnry{English}{C1 – Advanced}\\
+	\languageEnry{German}{A2 – Beginner}
+
+	% \section*{References}
+	% Available on Request
 	%	\input{refrences}
 	
 \end{document}
