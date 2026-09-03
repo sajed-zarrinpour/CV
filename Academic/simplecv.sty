@@ -1,247 +1,353 @@
 \ProvidesPackage{simplecv}
 
-% DOCUMENT LAYOUT
-\usepackage{geometry} 
-\geometry{a4paper, textwidth=6.5in, textheight=9in, marginparsep=7pt, marginparwidth=.6in}
-\setlength\parindent{0in}
-
-% to push the paragraphs aside so a text introduces them, like years and titles
-\newcommand{\aside}[2]{
-	\par\medskip\noindent#1\normalsize\hfill
-	\begin{minipage}[t]{\dimexpr\linewidth-8em\relax}
-		#2
-	\end{minipage}\hspace{10pt}\mbox{}\par\medskip%\hspace{4em}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    textwidth=6.5in,
+    textheight=9in,
+    marginparsep=7pt,
+    marginparwidth=.6in
 }
 
-\newcommand{\sectionaside}[2]{
-	\par\medskip\noindent#1\normalsize\hspace{5pt}
-	\begin{minipage}[t]{\dimexpr\linewidth-5em\relax}
-		#2
-	\end{minipage}\hspace{1pt}\mbox{}
-}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=2em
 
-% FONTS
+\usepackage{setspace}
+\setstretch{0.95}
+
 \usepackage{fontspec}
-\usepackage[usenames,dvipsnames]{color}
-% use sans family font
+\usepackage{paralist}
+\usepackage{enumitem}
+\usepackage{forarray}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[explicit]{titlesec}
+\usepackage[skins]{tcolorbox}
+
 \renewcommand{\familydefault}{\sfdefault}
 
-% PDF SETUP
+% ------------------------------------------------------------
+% LISTS
+% ------------------------------------------------------------
+
+\setlist[itemize]{
+    leftmargin=*,
+    labelsep=.4em,
+    itemsep=0pt,
+    parsep=0pt,
+    topsep=0pt,
+    partopsep=0pt
+}
+
+% ------------------------------------------------------------
+% PDF
+% ------------------------------------------------------------
+
 \usepackage[
-bookmarks, 
-colorlinks, 
-breaklinks, 
-% ---- FILL IN HERE THE TITLE AND AUTHOR
-pdftitle={Sajed Zarinpour - vita},
-pdfauthor={Sajed Zarinpour},
-pdfproducer={https://github.com/sajed-zarrinpour}
-]{hyperref}  
-\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=MidnightBlue}
+    bookmarks,
+    colorlinks,
+    breaklinks,
+    pdftitle={Sajed Zarinpour - vita},
+    pdfauthor={Sajed Zarinpour},
+    pdfproducer={https://github.com/sajed-zarrinpour}
+]{hyperref}
 
-% HELPER COMMANDS
-
-\newcommand{\seperatorcolor}{\textcolor{Cerulean}} % color theme
-\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}% Raised Rule Command: Arg 1 (Optional) - How high to raise the rule, Arg 2 - Thickness of the rule
-\newcommand{\slimseperator}{\seperatorcolor{\raisedrulefill[0.4ex]{.5pt}}} % the slim seperator
-\newcommand{\seperator}{\seperatorcolor{\raisedrulefill[0.4ex]{3pt}}} % seperator
-
-% NAME
-\newcommand{\name}[1]{
-	{\fontsize{10}{40} \selectfont#1}\\ %name
-	[0.5cm] % leave some space after name
+\hypersetup{
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=black,
+    urlcolor=MidnightBlue
 }
 
-\newcommand{\heading}[1]{
-	{\fontsize{20}{30} \selectfont#1}\\ %name
-	[0.5cm] % leave some space after name
+% ------------------------------------------------------------
+% HELPERS
+% ------------------------------------------------------------
+
+\newcommand{\seperatorcolor}{\textcolor{Cerulean}}
+
+\newcommand{\raisedrulefill}[2][0ex]{%
+    \leaders\hbox{\rule[#1]{1pt}{#2}}\hfill
 }
 
-% contact information section
-\usepackage{multicol}
-\newcommand{\contactInfo}[4]{
-	% \textcolor{gray}{#1} \hfill \textcolor{gray}{LinkedIn: \href{#4}{#4}} \\
-	% \textcolor{gray}{Phone: \hspace{.7em}\texttt{#2}} \hfil \hspace{.5cm} \textcolor{gray}{Email: \hspace{1.1em}\href{mailto:#3}{#3}}
-	\begin{center}
-		\small\textcolor{gray}{#1} | \textcolor{gray}{#2}
-	\end{center}
+\newcommand{\slimseperator}{%
+    \seperatorcolor{\raisedrulefill[0.4ex]{.5pt}}%
 }
 
-% resume headline
-\newcommand{\headline}[1]{
-	\begin{center}
-%		\vspace{.5cm}
-		\LARGE #1  \normalsize\normalfont\\[.5cm]	
-	\end{center}
+\newcommand{\seperator}{%
+    \seperatorcolor{\raisedrulefill[0.4ex]{3pt}}%
 }
 
-\usepackage{forarray} % to use foreach on arrays
-% for rendering skills in horizontal bullet list
-\usepackage{paralist}
-\newcommand{\skills}[1]{
-	\begin{inparaitem}
-		\ForEach
-		{,} %seperator
-		{\item \thislevelitem \hspace{3pt}} %for loop body
-		{ #1} %string input holding items seperated by seperator
-	\end{inparaitem}
-}
-% option 2: uncomment next 3 lines:
-%\usepackage[inline]{enumitem}
-%\newlist{skills}{enumerate*}{1}
-%\setlist[skills]{label=•}
-% though, you have to use it manually in the tex file using the following command:
-%\begin{skills}
-%	\item
-%\end{skills}
-% language lvl
-\newcommand{\languagelvl}[1]{
-	\small\em\bfseries #1 \normalfont
+% ------------------------------------------------------------
+% NAME AND HEADINGS
+% ------------------------------------------------------------
+
+\newcommand{\name}[1]{%
+    {\fontsize{10}{12}\selectfont #1}\\[-0.1cm]
 }
 
-% define how a section lookslike:
-\usepackage[explicit]{titlesec}
-\titleformat{\section}{\Large}{\thesection. }{0em}{
-	%	\years{\seperator}
-	\sectionaside{\slimseperator}{\bfseries #1 \normalfont}
+\newcommand{\heading}[1]{%
+    {\fontsize{20}{24}\selectfont #1}\\[-0.1cm]
 }
 
-% template for education entries, usage : \eduEntry{years}{Institute}{degree}{thesis}
-\newcommand{\eduEntry}[5]{
-	\aside{#1}{
-		\bfseries{#2}, \normalsize\normalfont#3\\
-		\normalfont #4
-		\color{gray}#5\normalsize\normalfont
-	}
+\newcommand{\headline}[1]{%
+    \begin{center}
+        \large #1\normalsize\normalfont\\[0.15cm]
+    \end{center}
 }
 
-\newcommand{\packageEntry}[3]{% Updated education entry
-	\aside{#1}{
-		#2\\
-		\normalsize\normalfont \color{gray}#3
-	}
-}
+% ------------------------------------------------------------
+% COLUMNS
+% ------------------------------------------------------------
 
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\expEntry}[5]{
-	\aside{#1}{
-		\large\bfseries{#2}, \normalfont #3#4	
-		
-		#5
-		\defaultfontfeatures{Mapping=tex-text}
-		\normalsize\normalfont\vspace{.2cm}
-	}
-}
-
-% template for experience entries, use : \explist{item1;item2}
-\newcommand{\explist}[1]{
-	\begin{itemize}
-		\setlength\itemsep{0em} %reducing the vertical space between entries
-		\ForEach
-		{;} % seperator
-		{ \item \thislevelitem } % processing each item
-		{ #1 } % string of ; seperated values
-	\end{itemize}
-}
-
-\usepackage{multicol}
-\newcommand{\interestslist}[1]{
-	\begin{multicols}{2}
-		\begin{itemize}
-			\setlength\itemsep{0em} %reducing the vertical space between entries
-			\ForEach
-			{,} % seperator
-			{ \item \thislevelitem } % processing each item
-			{ #1 } % string of , seperated values
-		\end{itemize}
-	\end{multicols}
+\newcommand{\aside}[2]{%
+    \par\smallskip
+    \noindent
+    \makebox[1.55in][l]{\mbox{#1}}%
+    \hspace{0.12in}%
+    \begin{minipage}[t]{\dimexpr\linewidth-1.67in\relax}
+        \raggedright
+        #2
+    \end{minipage}%
+    \par\smallskip
 }
 
 
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\confEntry}[3]{
-	\aside{#1}{
-		\bfseries{#2}\\ 
-		\normalfont\em\small #3
-		\normalsize\normalfont\vspace{.2cm}
-	}
-}
-
-% template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
-\newcommand{\refEntry}[5]{ 
-	\bfseries{#2} \normalfont - #3 #1\\
-	\indent\hspace{.2cm} \color{gray} Email: \normalcolor #4,\\
-	\indent\hspace{.2cm} \color{gray} Address \normalcolor #5
-	\normalsize\normalfont\\	  
+\newcommand{\sectionaside}[2]{%
+    \par\smallskip
+    \noindent
+    \begin{minipage}[t]{0.05\linewidth}
+        \raggedright
+        #1
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.93\linewidth}
+        \raggedright
+        #2
+    \end{minipage}%
 }
 
 
-% tags theme
-\usepackage[skins]{tcolorbox}
-\newtcolorbox{tagbox}[1][]{
-	colback=blue!10!white,
-	arc=5pt,
-	auto outer arc,
-	boxrule=0pt,
-	enhanced jigsaw,
-	nobeforeafter,
-	width=2cm,
-	height=.5cm,
-	boxsep=0pt,
-	halign=center,
-	valign=center,
-	box align=center,
-	colupper={black}, 
-	%	fontupper={\bfseries},
-	top=\fboxsep,
-	bottom=\fboxsep,
-	left=\fboxsep,
-	right=\fboxsep,
-	baseline=\fboxsep,
-	#1
+% ------------------------------------------------------------
+% CONTACT
+% ------------------------------------------------------------
+
+\newcommand{\contactInfo}[4]{%
+    \begin{center}
+        \small
+        \textcolor{gray}{#1}
+        \,|\, 
+        \textcolor{gray}{#2}
+        \,|\, 
+        \textcolor{gray}{#3}
+        \,|\, 
+        \textcolor{gray}{#4}
+    \end{center}
 }
 
-\newcommand{\sotagbox}[2][]{% \sotagbox{Julia}
-	\begin{tagbox}[#1]%
-		#2
-	\end{tagbox}%
+% ------------------------------------------------------------
+% SKILLS
+% ------------------------------------------------------------
+
+\newcommand{\skills}[1]{%
+    \begin{inparaitem}%
+        \ForEach
+        {,}
+        {\item \thislevelitem\hspace{3pt}}
+        {#1}%
+    \end{inparaitem}%
 }
 
-\newcommand{\bold}[1]{
-	\bfseries #1 \normalfont
+\newcommand{\languagelvl}[1]{%
+    \small\em\bfseries #1\normalfont
 }
 
-\newcommand{\languageEnry}[2]{
-	#1 - \small\em\bfseries #2 \normalfont
+% ------------------------------------------------------------
+% SECTIONS
+% ------------------------------------------------------------
+
+\titleformat{\section}
+    {\large}
+    {}
+    {0em}
+    {%
+        \sectionaside{\slimseperator}{\bfseries #1\normalfont}%
+    }
+
+\titlespacing*{\section}
+    {0pt}
+    {0.25cm}
+    {0.05cm}
+
+% ------------------------------------------------------------
+% EDUCATION
+% ------------------------------------------------------------
+
+\newcommand{\eduEntry}[5]{%
+    \aside{#1}{%
+         #2,\normalfont\ \color{gray}\small #3 \normalfont\ \normalcolor \\[-0.05cm]
+         \it #4\\[-0.05cm]
+        \color{gray}#5\normalcolor
+    }%
 }
 
-\newcommand{\selfAssessedEng}[5]{
-	\aside{Understanding:}{\skills{ Listening #1,  Reading #2}}
-	\aside{Speaking:}{\skills{Spoken Interaction #3, Spoken Production #4}}	
-	\aside{Writing:}{\skills{#5}}
-	
-	\small According to \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}{European language levels}: Basic user (A1, A2) - Independent user (B1, B2) - Proficient user (C1, C2) \normalfont
+% ------------------------------------------------------------
+% CERTIFICATES
+% ------------------------------------------------------------
+
+\newcommand{\packageEntry}[3]{%
+    \aside{#1}{%
+        #2\\[-0.05cm]
+        \normalsize\normalfont
+        \color{gray}#3\normalcolor
+    }%
 }
 
+% ------------------------------------------------------------
+% EXPERIENCE
+% ------------------------------------------------------------
 
+\newcommand{\expEntry}[5]{%
+    \aside{#1}{%
+         #2,\normalfont
+        \color{gray}\ #3#4\normalcolor\\[-0.05cm]
+        #5
+        \normalsize\normalfont
+    }%
+}
 
+\newcommand{\explist}[1]{%
+    {\setstretch{0.90}%
+    \begin{itemize}[
+        leftmargin=*,
+        labelsep=.4em,
+        itemsep=0pt,
+        parsep=0pt,
+        topsep=0pt,
+        partopsep=0pt
+    ]
+        \ForEach
+        {;}
+        {\item \thislevelitem}
+        {#1}
+    \end{itemize}%
+    }%
+}
 
+% ------------------------------------------------------------
+% INTERESTS
+% ------------------------------------------------------------
 
+\newcommand{\interestslist}[1]{%
+    \begin{multicols}{2}
+        \begin{itemize}[
+            leftmargin=*,
+            labelsep=.4em,
+            itemsep=0pt,
+            parsep=0pt,
+            topsep=0pt,
+            partopsep=0pt
+        ]
+            \ForEach
+            {,}
+            {\item \thislevelitem}
+            {#1}
+        \end{itemize}
+    \end{multicols}
+}
 
+% ------------------------------------------------------------
+% CONFERENCES
+% ------------------------------------------------------------
 
+\newcommand{\confEntry}[3]{%
+    \aside{#1}{%
+         #2\\[-0.05cm]
+        \normalfont\em\small \color{gray} #3
+        \normalsize\normalfont
+    }%
+}
 
+% ------------------------------------------------------------
+% REFERENCES
+% ------------------------------------------------------------
 
+\newcommand{\refEntry}[5]{%
+    \bfseries #2\normalfont\ -- #3 #1\\[-0.05cm]
+    \indent\hspace{.2cm}
+    \color{gray}Email:\normalcolor\ #4\\[-0.05cm]
+    \indent\hspace{.2cm}
+    \color{gray}Address:\normalcolor\ #5
+    \normalsize\normalfont
+}
 
+% ------------------------------------------------------------
+% TAG BOXES
+% ------------------------------------------------------------
 
+\newtcolorbox{tagbox}[1][]{%
+    colback=blue!10!white,
+    arc=5pt,
+    auto outer arc,
+    boxrule=0pt,
+    enhanced jigsaw,
+    nobeforeafter,
+    width=2cm,
+    height=.5cm,
+    boxsep=0pt,
+    halign=center,
+    valign=center,
+    box align=center,
+    colupper=black,
+    top=\fboxsep,
+    bottom=\fboxsep,
+    left=\fboxsep,
+    right=\fboxsep,
+    baseline=\fboxsep,
+    #1
+}
 
+\newcommand{\sotagbox}[2][]{%
+    \begin{tagbox}[#1]
+        #2
+    \end{tagbox}%
+}
 
+% ------------------------------------------------------------
+% TEXT HELPERS
+% ------------------------------------------------------------
 
+\newcommand{\bold}[1]{%
+    \bfseries #1\normalfont
+}
 
+\newcommand{\languageEnry}[2]{%
+    #1 -- \small\em #2\normalfont
+}
 
+% ------------------------------------------------------------
+% LANGUAGE SELF-ASSESSMENT
+% ------------------------------------------------------------
 
+\newcommand{\selfAssessedEng}[5]{%
+    \aside{Understanding:}{%
+        \skills{Listening #1, Reading #2}%
+    }
 
+    \aside{Speaking:}{%
+        \skills{Spoken Interaction #3, Spoken Production #4}%
+    }
 
+    \aside{Writing:}{%
+        \skills{#5}%
+    }
 
-
-
-
-
+    \small
+    According to
+    \href{https://europass.cedefop.europa.eu/resources/european-language-levels-cefr}
+    {European language levels}:
+    Basic user (A1, A2) --
+    Independent user (B1, B2) --
+    Proficient user (C1, C2).
+    \normalfont
+}
