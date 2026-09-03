@@ -140,8 +140,8 @@
         \textcolor{gray}{#2}
         \,|\, 
         \textcolor{gray}{#3}
-        \,|\, 
-        \textcolor{gray}{#4}
+        % \,|\, % phone
+        % \textcolor{gray}{#4}
     \end{center}
 }
 
@@ -167,7 +167,7 @@
 % ------------------------------------------------------------
 
 \titleformat{\section}
-    {\large}
+    {\large \color{gray}}
     {}
     {0em}
     {%
@@ -185,8 +185,8 @@
 
 \newcommand{\eduEntry}[5]{%
     \aside{#1}{%
-         #2,\normalfont\ \color{gray}\small #3 \normalfont\ \normalcolor \\[-0.05cm]
-         \it #4\\[-0.05cm]
+         #2,\normalfont \color{gray}\small #3 \normalfont \normalcolor \\[-0.05cm]
+         \it #4 %\\[-0.05cm]
         \color{gray}#5\normalcolor
     }%
 }
