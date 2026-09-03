@@ -47,7 +47,7 @@ pdfproducer={https://github.com/sajed-zarrinpour}
 
 % NAME
 \newcommand{\name}[1]{
-	{\fontsize{40}{70} \selectfont#1}\\ %name
+	{\fontsize{10}{40} \selectfont#1}\\ %name
 	[0.5cm] % leave some space after name
 }
 
@@ -59,9 +59,11 @@ pdfproducer={https://github.com/sajed-zarrinpour}
 % contact information section
 \usepackage{multicol}
 \newcommand{\contactInfo}[4]{
-	\textcolor{gray}{#1} \hfill \textcolor{gray}{LinkedIn: \href{#4}{#4}} \\
-	\textcolor{gray}{Phone: \hspace{.7em}\texttt{#2}} \hfil \hspace{.5cm} \textcolor{gray}{Email: \hspace{1.1em}\href{mailto:#3}{#3}}
-	
+	% \textcolor{gray}{#1} \hfill \textcolor{gray}{LinkedIn: \href{#4}{#4}} \\
+	% \textcolor{gray}{Phone: \hspace{.7em}\texttt{#2}} \hfil \hspace{.5cm} \textcolor{gray}{Email: \hspace{1.1em}\href{mailto:#3}{#3}}
+	\begin{center}
+		\small\textcolor{gray}{#1} | \textcolor{gray}{#2}
+	\end{center}
 }
 
 % resume headline
@@ -122,7 +124,7 @@ pdfproducer={https://github.com/sajed-zarrinpour}
 % template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
 \newcommand{\expEntry}[5]{
 	\aside{#1}{
-		\large\bfseries{#2} at \normalfont #3, #4	
+		\large\bfseries{#2}, \normalfont #3#4	
 		
 		#5
 		\defaultfontfeatures{Mapping=tex-text}
@@ -167,8 +169,8 @@ pdfproducer={https://github.com/sajed-zarrinpour}
 % template for experience entries, usage : \expEntry{years}{Title}{company}{city}{Achievements}
 \newcommand{\refEntry}[5]{ 
 	\bfseries{#2} \normalfont - #3 #1\\
-	\indent\hspace{.2cm} Email: #4,\\
-	\indent\hspace{.2cm} Address #5
+	\indent\hspace{.2cm} \color{gray} Email: \normalcolor #4,\\
+	\indent\hspace{.2cm} \color{gray} Address \normalcolor #5
 	\normalsize\normalfont\\	  
 }
 
